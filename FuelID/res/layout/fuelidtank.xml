@@ -1,0 +1,95 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" 
+        android:fillViewport="true"
+    android:background="@drawable/splash">
+
+    <LinearLayout
+        android:id="@+id/login"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp"
+       >
+<TextView
+            android:id="@+id/fuelstationid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+         android:paddingTop="5dp"
+           android:textColor="@color/white" 
+            android:ems="10"
+             android:text=""
+            android:textColorHint="#bbbbbb"
+            android:textSize="16sp" > 
+        </TextView>
+        
+        <LinearLayout
+            android:id="@+id/logi0n"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/frametransparent"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:paddingBottom="200dp" >
+        
+   <TextView
+            android:id="@+id/tankname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            
+            android:textColor="@color/white" 
+            android:ems="10"
+            android:text="Saldo en tanque"
+            android:textColorHint="#bbbbbb"
+            android:textSize="26sp" >
+
+        </TextView>
+           
+   <TextView
+            android:id="@+id/currenttank"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+         
+           android:textColor="@color/white" 
+            android:ems="10"
+             android:text="Hay un total de 1250.0L disponibles."
+            android:textColorHint="#bbbbbb"
+            android:textSize="14sp" > 
+        </TextView>
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+              
+                android:text="24/05/2017"
+                android:textColor="@color/white"
+                android:textColorHint="#bbbbbb"
+                android:textSize="10sp" />
+          </LinearLayout>
+
+        
+        
+        <LinearLayout
+            android:id="@+id/bigtank"
+            android:layout_width="340dp"
+            android:layout_height="211dp"
+            android:layout_gravity="center"
+            android:background="@drawable/tankdiagram0"
+            android:orientation="vertical" >
+            
+        </LinearLayout>
+          
+<EditText
+             android:layout_width="fill_parent"
+             android:layout_height="fill_parent"
+             android:layout_marginBottom="10dp"
+             android:layout_marginLeft="10dp"
+             android:layout_marginRight="10dp"
+             android:layout_weight="1"
+             android:gravity="bottom"
+             android:visibility="invisible" />
+   
+            </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+         android:background="@color/white"
+    android:orientation="vertical" >
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_span="3"
+            android:background="@color/ForestGreen"
+            android:padding="18dip"
+            android:text="PICK LIST"
+             android:id="@+id/tableroheader"
+            android:gravity="center"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+    
+  
+    
+    
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/LemonChiffon"
+        android:shrinkColumns="*"
+        android:stretchColumns="*" >
+
+           <TableRow
+               android:layout_width="fill_parent"
+               android:layout_height="fill_parent"
+               android:background="@color/LemonChiffon"
+               android:gravity="center_horizontal" >
+
+               <TextView
+                   android:layout_width="40dip"
+                   android:layout_height="wrap_content"
+                   android:layout_weight="1"
+                   android:id="@+id/encabezado1"
+                   android:gravity="center"
+                   android:layout_marginTop="5dp"
+                   android:text="Item"
+                   android:textColor="@color/black"
+                   android:textSize="14sp" />
+
+               <TextView
+                   android:layout_width="15dip"
+                   android:layout_height="wrap_content"
+                   android:id="@+id/encabezado2"
+                   android:layout_weight="1"
+                   android:layout_marginTop="5dp"
+                   android:gravity="center"
+                   android:text="Ordenado"
+                   android:textColor="@color/black"
+                   android:textSize="14sp" />
+
+               <TextView
+                   android:layout_width="15dip"
+                   android:layout_height="wrap_content"
+                   android:id="@+id/encabezado3"
+                   android:layout_weight="1"
+                   android:gravity="center"
+                   android:text="Recibido"
+                   android:layout_marginTop="5dp"
+                   android:textColor="@color/black"
+                   android:textSize="14sp" />
+
+               <TextView
+                   android:layout_width="15dip"
+                   android:id="@+id/encabezado4"
+                   android:layout_height="wrap_content"
+                   android:layout_weight="1"
+                   android:gravity="center"
+                   android:layout_marginTop="5dp"
+                   android:text="Pendiente"
+                   android:textColor="@color/black"
+                   android:textSize="14sp" />
+       
+ </TableRow> 
+              
+    
+    </TableLayout>
+    
+    
+</LinearLayout>

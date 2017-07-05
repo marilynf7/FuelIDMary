@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name"
+        translatable="false">FuelID                </string>
+    <string name="action_settings">Settings</string>
+    <string name="empty"></string>
+    <string name="add">Add</string>
+    <string name="refresh">Refresh</string>
+    <string name="help">Help</string>
+    <string name="nc">Borrar ruta</string>
+    <string name="Fuel">Refrescar</string>
+    <string name="dc">Sucursal</string>
+    <string name="no">Limpiar mapa</string>
+    <string name="error_config">Please set the %1$s constant and recompile the app.</string>
+    <string name="request_error">ERROR: request could not be processed by AirBop: %1$s - %2$s</string>
+    <string name="gcm_registered">GCM: device successfully registered.</string>
+    <string name="gcm_unregistered">GCM: device successfully unregistered.</string>
+    <string name="airbop_message">AirBop: You\'ve got a message.</string>
+    <string name="gcm_error">GCM: error (%1$s).</string>
+    <string name="gcm_register_attempt">Attempting to register with the GCM servers.</string>
+    <string name="gcm_recoverable_error">GCM: recoverable error (%1$s).</string>
+    <string name="gcm_deleted">GCM server: server deleted %1$d pending messages.</string>
+    <string name="server_registering">Trying (attempt %1$d/%2$d) to register device on AirBop Server.</string>
+    <string name="server_registered">AirBop: The device has been successfully registered.</string>
+    <string name="server_unregistered">AirBop: successfully unregistered and removed device.</string>
+    <string name="server_register_error">Could not register device on AirBop Server after %1$d attempts.</string>
+    <string name="server_unregister_error">Could not unregister device on AirBop Server (%1$s).</string>
+    <string name="options_register">Register</string>
+    <string name="options_unregister">Unregister</string>
+    <string name="options_clear">Clear</string>
+    <string name="options_exit">Exit</string>
+    <string name="reg_thread_running">WARNING: Registration thread already running.</string>
+    <string name="unreg_thread_running">WARNING: Unregistration thread already running.</string>
+    <string name="unregister_device">Attempting to unregister device from AirBop server.</string>
+    <string name="airbop_server_reg_failed">Failed to register: Post failed with error code: %1$s %2$s</string>
+	<string name="airbop_server_reg_failed_401">Failed to register, server error message: %1$s</string>
+	<string name="airbop_server_reg_failed_timeout">Failed to register, connection timeout, server error message: %1$s</string>
+	<string name="already_registered">Device is already registered on AirBop server.</string>
+	<string name="options_unregister_gcm">Unregister GCM</string>
+	<string name="options_unregister_airbop">Unregister AirBop</string>
+	<string name="airbop_service_registration_complete">The AirBopIntentService has finished registering.</string>
+	<string name="airbop_service_unregistration_complete">The AirBopIntentService has finished unregistering.</string>
+	<string name="getting_location">Going to get current location from the location manager.</string>
+	<string name="got_last_location">Got last location. Latitude : %1$s Longitude : %2$s</string>
+	<string name="got_current_location">Got current location. Latitude : %1$s Longitude : %2$s</string>
+	<string name="Buscar">Buscar</string>
+
+    <string name="hello_world">Hello world!</string>
+        <string name="connectionfail">Error de conexión!</string>
+              <string name="invalidlicense">Licencia inválida!</string>
+                   <string name="fillup">Rellene la información para avanzar!</string>
+    <string name="drawer_open">Slider Menu Opened</string>
+    <string name="drawer_close">Slider Menu Closed</string>
+     
+        <string name="namelow">Name</string>
+    <string name="fuelstationid">Estación</string>
+    <string name="fleetid">Placa</string>
+    <string name="start">START!</string>
+    
+    <!-- Nav Drawer Menu Items -->
+    <string-array name="nav_drawer_items">
+        <item >Principal</item>
+
+    </string-array>
+     
+    <!-- Nav Drawer List Item Icons -->
+    <!-- Keep them in order as the titles are in -->
+    <array name="nav_drawer_icons">
+        <item>@drawable/gears</item>
+    </array>
+     
+    <!-- Content Description -->
+    <string name="desc_list_item_icon">Item Icon</string>
+ 
+         	<style name="DefaultButtonText">
+	    <item name="android:layout_width">fill_parent</item>
+	    <item name="android:layout_height">wrap_content</item>
+	    <item name="android:textColor">#979797</item>
+	    <item name="android:gravity">center</item>
+	    <item name="android:layout_margin">3dp</item>
+	    <item name="android:textStyle">normal</item>
+	    <item name="android:textSize">14sp</item>
+	    <item name="android:shadowColor">#f9f9f9</item>
+	    <item name="android:shadowDx">1</item>
+	    <item name="android:shadowDy">1</item>
+	    <item name="android:shadowRadius">1</item>
+	</style>
+	    <string name="noentrytransactions">No hay transacciones de entrada</string>
+	    <string name="scan">Scan</string>
+</resources>
