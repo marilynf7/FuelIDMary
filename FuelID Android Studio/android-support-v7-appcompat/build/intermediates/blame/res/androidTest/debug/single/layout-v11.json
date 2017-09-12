@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "C:\\Users\\Julio Castro\\AndroidStudioProjects\\FuelID\\FuelID Android Studio\\android-support-v7-appcompat\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout-v11\\abc_simple_decor.xml",
+        "source": "C:\\Users\\Julio Castro\\AndroidStudioProjects\\FuelID\\FuelID Android Studio\\android-support-v7-appcompat\\build\\intermediates\\bundles\\debug\\res\\layout-v11\\abc_simple_decor.xml"
+    },
+    {
+        "merged": "C:\\Users\\Julio Castro\\AndroidStudioProjects\\FuelID\\FuelID Android Studio\\android-support-v7-appcompat\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout-v11\\abc_action_bar_decor.xml",
+        "source": "C:\\Users\\Julio Castro\\AndroidStudioProjects\\FuelID\\FuelID Android Studio\\android-support-v7-appcompat\\build\\intermediates\\bundles\\debug\\res\\layout-v11\\abc_action_bar_decor.xml"
+    }
+]

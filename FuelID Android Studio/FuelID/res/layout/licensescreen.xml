@@ -1,0 +1,153 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+<ScrollView
+    android:id="@+id/scrollView1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" 
+        android:fillViewport="true"
+    android:background="@drawable/splash">
+
+    
+    <LinearLayout
+        android:id="@+id/login"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+     
+        android:orientation="vertical"
+        android:padding="20dp" >
+<LinearLayout
+        android:id="@+id/logi0n"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/frametransparent"
+        android:orientation="vertical"
+        android:padding="20dp" >
+    <TextView android:id="@+id/lblEstatus" android:layout_width="match_parent" android:layout_height="wrap_content" android:ems="10" android:text="FUELID: Control de combustible" android:textColor="@color/white" android:textColorHint="#bbbbbb" android:textSize="12sp"/>
+        
+        
+        
+   <TextView
+            android:id="@+id/Motivotime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white" 
+            android:ems="10"
+            android:text="BIENVENIDO"
+            android:textColorHint="#bbbbbb"
+            android:textSize="30sp" >
+        </TextView>
+           
+   <TextView
+           android:id="@+id/DetalleMotivo"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:textColor="@color/white" 
+           android:ems="10"
+           android:text="Regístrese para comenzar"
+           android:textColorHint="#bbbbbb"
+           android:textSize="14sp" > 
+        </TextView>
+        
+</LinearLayout>
+<TextView
+    android:id="@+id/textView3"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingLeft="5dip"
+    android:paddingTop="30dip"
+    android:text="Nombre completo:"
+    android:textAppearance="?android:attr/textAppearanceSmall"
+    android:textColor="@color/white" />
+
+        <EditText
+            android:id="@+id/user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_top_bg"
+           
+            android:ems="10"
+            android:hint=""
+            android:padding="10dp"
+            android:textColorHint="#bbbbbb"
+            android:textSize="14sp" >
+
+            <requestFocus />
+        </EditText>
+
+<TextView
+    android:id="@+id/textView223"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingLeft="5dip"
+    android:paddingTop="20dip"
+    android:text="Compañia:"
+    android:textAppearance="?android:attr/textAppearanceSmall"
+    android:textColor="@color/white" />
+
+        <EditText
+            android:id="@+id/company"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_top_bg"
+       
+            android:ems="10"
+            android:hint=""
+            android:padding="10dp"
+            android:textColorHint="#bbbbbb"
+            android:textSize="14sp" >
+
+         
+        </EditText>
+<TextView
+    android:id="@+id/fleetidheader"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingLeft="5dip"
+    android:paddingTop="20dip"
+    android:text="Licencia:"
+    android:textAppearance="?android:attr/textAppearanceSmall"
+    android:textColor="@color/white" />
+        <EditText
+            android:id="@+id/license"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_top_bg"
+         
+            android:ems="10"
+            android:hint=""
+            android:padding="10dp"
+            android:textColorHint="#bbbbbb"
+            android:textSize="14sp" >
+
+        
+        </EditText>
+
+     <EditText
+             android:layout_width="fill_parent"
+             android:layout_height="0dp"
+             android:layout_marginBottom="10dp"
+             android:layout_marginLeft="10dp"
+             android:layout_marginRight="10dp"
+             android:layout_weight="1"
+             android:gravity="bottom"
+             android:visibility="invisible" />
+
+     <Button
+         android:id="@+id/btnSingIn"
+         style="@style/DefaultButtonText"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_margin="4dp"
+         android:layout_marginTop="20dp"
+         android:background="@drawable/frametransparent"
+         android:onClick="onSave"
+         android:padding="10dp"
+         android:text="Registrarse"
+         android:textColor="@color/white" />
+
+        </LinearLayout>
+
+
+</ScrollView>
+</RelativeLayout>

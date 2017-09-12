@@ -1,0 +1,163 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" 
+        android:fillViewport="true"
+    android:background="@drawable/splash">
+
+
+    
+    <LinearLayout
+        android:id="@+id/login"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+     
+        android:orientation="vertical"
+        android:padding="20dp" >
+        
+        <LinearLayout
+        android:id="@+id/logi0n"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/frametransparent"
+        android:orientation="vertical"
+        android:padding="20dp" >
+           <TextView
+            android:id="@+id/nom2bredeusuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+         
+           android:textColor="@color/white" 
+            android:ems="10"
+             android:text="Placa"
+            android:textColorHint="#bbbbbb"
+            android:textSize="12sp" > 
+        </TextView>
+   <TextView
+            android:id="@+id/plate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+         
+           android:textColor="@color/white" 
+            android:ems="10"
+             android:text="257060"
+       
+            android:textColorHint="#bbbbbb"
+            android:textSize="35sp" >
+
+  
+               
+        </TextView>
+           <TextView
+            android:id="@+id/remainingamount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+         
+           android:textColor="@color/white" 
+            android:ems="10"
+             android:text="25 litros de saldo disponible"
+            android:textColorHint="#bbbbbb"
+            android:textSize="12sp" > 
+        </TextView>
+          </LinearLayout>
+<TextView
+    android:id="@+id/textView3"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingLeft="5dip"
+    android:paddingTop="30dip"
+    android:text="Litros ingresados:"
+    android:textAppearance="?android:attr/textAppearanceSmall"
+    android:textColor="@color/white" />
+
+        <EditText
+            android:id="@+id/liters"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_top_bg"
+         android:inputType="numberDecimal" 
+            android:ems="10"
+            android:hint="Litros"
+            android:padding="10dp"
+            android:textColorHint="#bbbbbb"
+            android:textSize="14sp" >
+
+            <requestFocus />
+        </EditText>
+        <TextView
+    android:id="@+id/fleetid0header"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingLeft="5dip"
+    android:paddingTop="20dip"
+    android:text="Odómetro:"
+    android:textAppearance="?android:attr/textAppearanceSmall"
+    android:textColor="@color/white" />
+
+ 
+
+        <EditText
+            android:id="@+id/odometer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_top_bg"
+            android:inputType="numberDecimal" 
+            android:ems="10"
+            android:hint="Kilometraje"
+            android:padding="10dp"
+            android:textColorHint="#bbbbbb"
+            android:textSize="14sp" >
+
+        
+        </EditText>
+<TextView
+    android:id="@+id/fleetidheader"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingLeft="5dip"
+    android:paddingTop="20dip"
+    android:text="Tipo de combustible:"
+    android:textAppearance="?android:attr/textAppearanceSmall"
+    android:textColor="@color/white" />
+        <Spinner
+            android:id="@+id/fueltype"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_top_bg"
+         
+            android:ems="10"
+            android:hint="Tipo de combustible"
+            android:padding="5dp"
+            android:textColorHint="#bbbbbb"
+            android:textSize="14sp" >
+
+        
+        </Spinner>
+
+     
+        <EditText
+             android:layout_width="fill_parent"
+             android:layout_height="fill_parent"
+             android:layout_marginBottom="10dp"
+             android:layout_marginLeft="10dp"
+             android:layout_marginRight="10dp"
+             android:layout_weight="1"
+             android:gravity="bottom"
+             android:visibility="invisible" />
+                <Button 
+               android:id="@+id/btnSingIn"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_margin="4dp"
+               android:layout_marginTop="20dp"
+            android:onClick="onSave"
+               android:text="Registrar"
+                 android:textColor="@color/white" 
+               android:layout_gravity="bottom"
+            style="@style/DefaultButtonText"
+               android:background="@drawable/frametransparent"
+           />
+        </LinearLayout>
+  
+</ScrollView>

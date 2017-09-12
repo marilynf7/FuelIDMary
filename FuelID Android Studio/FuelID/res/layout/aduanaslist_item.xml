@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="3dp"
+    android:background="@drawable/list_selector"
+    android:shrinkColumns="*"
+    android:stretchColumns="*" >
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        tools:ignore="RtlHardcoded" >
+
+        <TextView
+            android:id="@+id/Espacio1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:layout_weight="0"
+            android:textSize="10sp"
+            tools:ignore="NestedWeights" />
+        
+        <TextView
+            android:id="@+id/ItemId"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:layout_weight="0"
+            android:textSize="16sp" />
+        
+        <TextView
+            android:id="@+id/descripcion"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:layout_weight="0"
+            android:textSize="16sp" />
+
+         <TextView
+            android:id="@+id/Cantidad"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:layout_weight="0"
+            android:textSize="16sp" />
+         <TextView
+            android:id="@+id/Almacen"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:layout_weight="0"
+            android:textSize="16sp" />
+         
+         <TextView
+            android:id="@+id/Empresa"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:layout_weight="0"
+            android:textSize="16sp" />
+         
+          <TextView
+            android:id="@+id/Peso"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:layout_weight="0"
+            android:textSize="16sp" />
+          
+         <TextView
+            android:id="@+id/BL"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:layout_weight="0"
+            android:textSize="16sp" />
+         
+         <TextView
+            android:id="@+id/ConfigID"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:layout_weight="0"
+            android:textSize="16sp" />
+        
+         <TextView
+            android:id="@+id/YearID"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:layout_weight="0"
+            android:textSize="16sp" />
+         
+         <TextView
+            android:id="@+id/DUA"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:layout_weight="0"
+            android:textSize="16sp" />
+         
+         <TextView
+            android:id="@+id/InventarioID"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:layout_weight="0"
+            android:textSize="16sp" />
+         
+         <TextView
+            android:id="@+id/FechaIngreso"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:layout_weight="0"
+            android:textSize="16sp" />
+
+         <TextView
+            android:id="@+id/Espacio2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:layout_weight="0"
+            android:textSize="10sp" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="3dp"
+        android:contentDescription="@string/desc_list_item_icon" />
+
+</LinearLayout>

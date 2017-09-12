@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "C:\\Users\\Julio Castro\\AndroidStudioProjects\\FuelID\\FuelID Android Studio\\FuelID\\build\\intermediates\\res\\merged\\debug\\menu\\newpickpath.xml",
+        "source": "C:\\Users\\Julio Castro\\AndroidStudioProjects\\FuelID\\FuelID Android Studio\\FuelID\\res\\menu\\newpickpath.xml"
+    },
+    {
+        "merged": "C:\\Users\\Julio Castro\\AndroidStudioProjects\\FuelID\\FuelID Android Studio\\FuelID\\build\\intermediates\\res\\merged\\debug\\menu\\calculatorandscan.xml",
+        "source": "C:\\Users\\Julio Castro\\AndroidStudioProjects\\FuelID\\FuelID Android Studio\\FuelID\\res\\menu\\calculatorandscan.xml"
+    },
+    {
+        "merged": "C:\\Users\\Julio Castro\\AndroidStudioProjects\\FuelID\\FuelID Android Studio\\FuelID\\build\\intermediates\\res\\merged\\debug\\menu\\addcontact.xml",
+        "source": "C:\\Users\\Julio Castro\\AndroidStudioProjects\\FuelID\\FuelID Android Studio\\FuelID\\res\\menu\\addcontact.xml"
+    },
+    {
+        "merged": "C:\\Users\\Julio Castro\\AndroidStudioProjects\\FuelID\\FuelID Android Studio\\FuelID\\build\\intermediates\\res\\merged\\debug\\menu\\refresh.xml",
+        "source": "C:\\Users\\Julio Castro\\AndroidStudioProjects\\FuelID\\FuelID Android Studio\\FuelID\\res\\menu\\refresh.xml"
+    },
+    {
+        "merged": "C:\\Users\\Julio Castro\\AndroidStudioProjects\\FuelID\\FuelID Android Studio\\FuelID\\build\\intermediates\\res\\merged\\debug\\menu\\scanandswap.xml",
+        "source": "C:\\Users\\Julio Castro\\AndroidStudioProjects\\FuelID\\FuelID Android Studio\\FuelID\\res\\menu\\scanandswap.xml"
+    },
+    {
+        "merged": "C:\\Users\\Julio Castro\\AndroidStudioProjects\\FuelID\\FuelID Android Studio\\FuelID\\build\\intermediates\\res\\merged\\debug\\menu\\main_activity_w.xml",
+        "source": "C:\\Users\\Julio Castro\\AndroidStudioProjects\\FuelID\\FuelID Android Studio\\FuelID\\res\\menu\\main_activity_w.xml"
+    }
+]

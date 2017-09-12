@@ -1,0 +1,90 @@
+<resources>
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+<style name="AppTheme" parent="AppBaseTheme">
+       <item name="android:typeface">monospace</item>
+    <item name="android:actionBarWidgetTheme">@style/Theme.stylingactionbar.widget</item>
+</style>
+<style name="PopupMenu" parent="@android:style/Widget.Holo.ListPopupWindow">
+    <item name="android:popupBackground">@color/DarkSlateBlue</item>
+ <!-- for @color you have to create a color.xml in res > values -->
+</style>
+<style name="Theme.stylingactionbar.widget" parent="@android:style/Theme.Holo">
+    <item name="android:popupMenuStyle">@color/DarkSlateBlue</item>
+</style>  
+
+    
+<style name="Transparent" parent="@android:style/Theme.NoTitleBar">
+    <item name="android:windowContentOverlay">@null</item>
+    <item name="android:windowIsTranslucent">true</item>
+    
+    <item name="android:windowBackground">@android:color/transparent</item>
+    <item name="android:windowNoTitle">true</item>      
+    <item name="android:backgroundDimEnabled">false</item>
+</style>
+
+ <style name="edittext" parent="android:Widget.Holo.Light.EditText">
+        <item name="android:background">@drawable/edittext_bg</item>
+        <item name="android:inputType">textPersonName</item>
+        <item name="android:paddingLeft">@dimen/pad_10dp</item>
+        <item name="android:paddingRight">@dimen/pad_10dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textColorHint">@color/main_red_lt</item>
+        <item name="android:textSize">@dimen/txt_15sp</item>
+    </style>
+    <style name="btn" parent="android:Widget.Holo.Light.Button">
+        <item name="android:minHeight">1dp</item>
+        <item name="android:minWidth">1dp</item>
+    </style>
+    <style name="btn_main_red_lt" parent="@style/btn">
+        <item name="android:background">@color/main_red</item>
+        <item name="android:padding">@dimen/pad_10dp</item>
+        <item name="android:textColor">@color/main_red_lt</item>
+        <item name="android:textSize">@dimen/txt_15sp</item>
+    </style>
+    <style name="profile_lbl1" parent="android:Widget.Holo.Light.TextView">
+        <item name="android:textColor">@color/side_menu_divider</item>
+        <item name="android:textSize">@dimen/txt_14sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="profile_lbl2" parent="@style/profile_lbl1">
+        <item name="android:textStyle">normal</item>
+    </style>
+    <style name="lbl_setting1" parent="android:Widget.Holo.Light.TextView">
+        <item name="android:textColor">@color/side_menu_divider</item>
+        <item name="android:textSize">@dimen/txt_16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="lbl_setting2" parent="android:Widget.Holo.Light.TextView">
+        <item name="android:textColor">@color/gray_dk</item>
+        <item name="android:textSize">@dimen/txt_16sp</item>
+    </style>
+    <style name="switch_custom" >
+        <item name="android:textColor">@color/gray_dk</item>
+        <item name="android:textSize">@dimen/txt_16sp</item>
+        <item name="android:thumb">@drawable/switch_thumb</item>
+        <item name="android:track">@drawable/switch_bg</item>
+    </style>
+    <style name="tab_btn" parent="@style/btn">
+        <item name="android:background">@drawable/btn_tab</item>
+        <item name="android:paddingBottom">@dimen/pad_5dp</item>
+        <item name="android:textColor">@color/side_menu_bg</item>
+        <item name="android:textSize">@dimen/txt_14sp</item>
+    </style>
+    <style name="lbl_list_gray" parent="android:Widget.Holo.Light.TextView">
+        <item name="android:textColor">@color/side_menu_divider</item>
+        <item name="android:textSize">@dimen/txt_12sp</item>
+    </style>
+ 
+</resources>

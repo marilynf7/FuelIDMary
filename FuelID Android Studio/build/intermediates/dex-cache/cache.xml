@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="C:\Users\Julio Castro\Documents\FuelID Android Studio\android-support-v7-appcompat\build\intermediates\bundles\default\libs\android-support-v7-appcompat.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="7fc0658c1ebf268a9ee0f1df40bc4937e34300f0">
+        <dex dex="C:\Users\Julio Castro\Documents\FuelID Android Studio\FuelID\build\intermediates\pre-dexed\debug\android-support-v7-appcompat_0ee011d72e6d556fd826f5cec058426ca2a97fe7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Julio Castro\Documents\FuelID Android Studio\android-support-v7-appcompat\build\intermediates\bundles\default\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="a90524b4b573a90b2ccfde672cf94fa5b3cb3f56">
+        <dex dex="C:\Users\Julio Castro\Documents\FuelID Android Studio\FuelID\build\intermediates\pre-dexed\debug\classes_b2a081f9302cbd93dcace718b4bef20132b6ec4e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Julio Castro\Documents\FuelID Android Studio\android-support-v7-appcompat\build\intermediates\bundles\default\libs\android-support-v4.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="4f136ba13caddef4d5c977dea2dca27969cdf24b">
+        <dex dex="C:\Users\Julio Castro\Documents\FuelID Android Studio\FuelID\build\intermediates\pre-dexed\debug\android-support-v4_4620990eb32298a34c1b7260c35dd15f53ff397d.jar" />
+    </item>
+
+</items>

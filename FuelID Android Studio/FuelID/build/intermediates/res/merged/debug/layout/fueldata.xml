@@ -1,0 +1,210 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" 
+        android:fillViewport="true"
+    android:background="@drawable/splash">
+
+    <LinearLayout
+        android:id="@+id/login"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp" >
+
+        <TextView
+            android:id="@+id/fuelstationid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+         android:paddingTop="30dp"
+           android:textColor="@color/white" 
+            android:ems="10"
+             android:text="Estación Zurquí"
+            android:textColorHint="#bbbbbb"
+            android:textSize="16sp" > 
+        </TextView>
+        <TextView
+            android:id="@+id/username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+         android:paddingBottom="10dp"
+           android:textColor="@color/white" 
+            android:ems="10"
+             android:text="Usuario:jcastrillo"
+            android:textColorHint="#bbbbbb"
+            android:textSize="12sp" > 
+        </TextView>
+        <LinearLayout
+        android:id="@+id/logi0n"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/frametransparent"
+        android:orientation="vertical"
+        android:padding="20dp" >
+        <TextView
+            android:id="@+id/nom2b4redeusuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+         
+           android:textColor="@color/white" 
+            android:ems="10"
+             android:text="Placa:"
+            android:textColorHint="#bbbbbb"
+            android:textSize="12sp" > 
+        </TextView>
+   <TextView
+            android:id="@+id/plate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+         
+           android:textColor="@color/white" 
+            android:ems="10"
+             android:text="257060"
+       
+            android:textColorHint="#bbbbbb"
+            android:textSize="35sp" >
+
+  
+               
+        </TextView>
+           
+   <TextView
+            android:id="@+id/autobrand"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+         
+           android:textColor="@color/white" 
+            android:ems="10"
+             android:text="Toyota X7"
+            android:textColorHint="#bbbbbb"
+            android:textSize="14sp" > 
+        </TextView>
+          </LinearLayout>
+<LinearLayout
+        android:id="@+id/log0i0n"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/frametransparent"
+        android:orientation="vertical"
+        android:padding="20dp" >
+        
+   <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" 
+            android:gravity="center_vertical">
+
+        <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                 >
+
+                <ImageView
+    android:id="@+id/icon"
+    android:layout_width="60dp"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:layout_marginLeft="12dp"
+    android:layout_marginRight="12dp"
+    android:layout_marginTop="3dp"
+      android:src="@drawable/fuelwhiteicon"
+    android:contentDescription="@string/desc_list_item_icon"
+    />
+                <TextView
+                    android:id="@+id/available"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="..."
+                    android:textColor="@color/white"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/tipopopup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textColorLink="@color/main_grey_dk"
+                    android:textSize="@dimen/txt_14sp"
+                    android:text="Saldo disponible" 
+                    android:autoLink="phone"/>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/view1"
+                android:layout_width="@dimen/divider"
+                android:layout_height="match_parent"
+                android:background="@color/main_grey_lt" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                 >
+     <ImageView
+    android:id="@+id/ic0on"
+    android:layout_width="60dp"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:layout_marginLeft="12dp"
+    android:layout_marginRight="12dp"
+    android:layout_marginTop="3dp"
+    android:contentDescription="@string/desc_list_item_icon"
+          android:src="@drawable/calendarwhiteicon"
+    />
+                <TextView
+                    android:id="@+id/date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="..."
+                    android:textColor="@color/white"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/metapopup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textColorLink="@color/main_grey_dk"
+                    android:textSize="@dimen/txt_14sp"
+                    android:text="Último registro" 
+                    android:autoLink="phone"/>
+            </LinearLayout>
+            
+            
+
+        </LinearLayout>
+           
+          </LinearLayout>
+<EditText
+             android:layout_width="fill_parent"
+             android:layout_height="fill_parent"
+             android:layout_marginBottom="10dp"
+             android:layout_marginLeft="10dp"
+             android:layout_marginRight="10dp"
+             android:layout_weight="1"
+             android:gravity="bottom"
+             android:visibility="invisible" />
+
+         <Button 
+               android:id="@+id/btnSingIn"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_margin="4dp"
+               android:layout_marginTop="20dp"
+            android:onClick="onSave"
+               android:text="Registrar consumo"
+                 android:textColor="@color/white" 
+               android:layout_gravity="bottom"
+            style="@style/DefaultButtonText"
+               android:background="@drawable/frametransparent"
+           />
+   
+            </LinearLayout>
+
+</ScrollView>
