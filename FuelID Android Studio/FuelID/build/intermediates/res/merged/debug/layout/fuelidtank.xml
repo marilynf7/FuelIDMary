@@ -32,37 +32,49 @@
             android:orientation="vertical"
             android:padding="20dp"
             android:paddingBottom="200dp" >
-        
-   <TextView
-            android:id="@+id/tankname"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            
-            android:textColor="@color/white" 
-            android:ems="10"
-            android:text="Saldo en tanque"
-            android:textColorHint="#bbbbbb"
-            android:textSize="26sp" >
 
-        </TextView>
-           
-   <TextView
-            android:id="@+id/currenttank"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-         
-           android:textColor="@color/white" 
-            android:ems="10"
-             android:text="Hay un total de 1250.0L disponibles."
-            android:textColorHint="#bbbbbb"
-            android:textSize="14sp" > 
-        </TextView>
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:ems="10"
+                android:text="Saldo en tanque"
+                android:textColor="@color/white"
+                android:textColorHint="#bbbbbb"
+                android:textSize="26sp">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/tankname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:ems="10"
+                android:textColor="@color/white"
+                android:textColorHint="#bbbbbb"
+                android:textSize="18sp">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/currenttank"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:ems="10"
+                android:text="Hay un total de 0.0L disponibles."
+                android:textColor="@color/white"
+                android:textColorHint="#bbbbbb"
+                android:textSize="14sp"></TextView>
+
             <TextView
                 android:id="@+id/date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-              
-                android:text="24/05/2017"
+
+                android:text="XX/XX/XXXX"
                 android:textColor="@color/white"
                 android:textColorHint="#bbbbbb"
                 android:textSize="10sp" />

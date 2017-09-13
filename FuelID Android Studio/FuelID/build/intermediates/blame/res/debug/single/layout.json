@@ -160,6 +160,10 @@
         "source": "C:\\Users\\Julio Castro\\AndroidStudioProjects\\FuelID\\FuelID Android Studio\\android-support-v7-appcompat\\build\\intermediates\\bundles\\default\\res\\layout\\abc_action_bar_view_list_nav_layout.xml"
     },
     {
+        "merged": "C:\\Users\\Julio Castro\\AndroidStudioProjects\\FuelID\\FuelID Android Studio\\FuelID\\build\\intermediates\\res\\merged\\debug\\layout\\loginscreenbalance.xml",
+        "source": "C:\\Users\\Julio Castro\\AndroidStudioProjects\\FuelID\\FuelID Android Studio\\FuelID\\res\\layout\\loginscreenbalance.xml"
+    },
+    {
         "merged": "C:\\Users\\Julio Castro\\AndroidStudioProjects\\FuelID\\FuelID Android Studio\\FuelID\\build\\intermediates\\res\\merged\\debug\\layout\\header_receiving.xml",
         "source": "C:\\Users\\Julio Castro\\AndroidStudioProjects\\FuelID\\FuelID Android Studio\\FuelID\\res\\layout\\header_receiving.xml"
     },

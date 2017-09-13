@@ -93,37 +93,31 @@ public class FuelTank extends Activity {
 	final String PREFS_NAME = "MyPrefsFile";
     private UserPermissionsDatabaseHelper databaseHelper;
     public double LOWERV,CENTERV,UPPERV;
-  
-    public String TANKNAME,MAXVAL,MAXANALOG,CURRENTANALOG,LASTUPLOAD;
-	
-	
-	   public  Timer timer = new Timer();
+	public String IDTANK,COMPANY,AMOUNT,SIZE,TANKNAME,LASTUPLOAD;
+    public  Timer timer = new Timer();
+	public int PRIM = 0;
     
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 	super.onCreate(savedInstanceState);
-
 	  FontsOverride.setDefaultFont(this, "MONOSPACE", "fonts/MuseoSans300.otf");
-		
 	setContentView(R.layout.fuelidtank);
 	ActionBar actionBar = getActionBar();
 	actionBar.hide();
-	
-	// more stuff here...
-
 	    actionBar.setSubtitle("Saldo tanque");
 	    actionBar.setTitle("FuelID");
 	    actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.Crimson)));
 	    actionBar.setDisplayShowTitleEnabled(false);  // required to force redraw, without, gray color
 	    actionBar.setDisplayShowTitleEnabled(true);
 	    actionBar.setDisplayHomeAsUpEnabled(false);
-	    actionBar.show(); 
-
-	    Intent intent = getIntent();
+	    actionBar.show();
+		Intent intent = getIntent();
+		IDTANK=intent.getStringExtra("idtank");
+        COMPANY=intent.getStringExtra("company");
+		Log.e("IDTANK ----------- ",IDTANK);
+        Log.e("COMPANY ----------- ",COMPANY);
 	    SwitchVisualization(true);
-
-
-		}
+	}
 	
 	  @Override
 	 public boolean onCreateOptionsMenu(Menu menu) {
@@ -137,216 +131,164 @@ public class FuelTank extends Activity {
 
 	 @Override
 	 public boolean onOptionsItemSelected(MenuItem item) {
-	        // Handle presses on the action bar items
-
-	        switch (item.getItemId()) {
+		 switch (item.getItemId()) {
 	            case R.id.refresh:
 	            new LoadFuelData().execute();   	
 	            default:
 	            return super.onOptionsItemSelected(item);
 	        }
 	    }
-	 
-	
    
 	    private boolean hasContent(EditText et) {
 		       return (et.getText().toString().trim().length() > 0);
 		}
- 
 
 	 @Override
 	    public void onBackPressed() {
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
-  		builder.setMessage("¿Esta seguro de que desea salir? Perderá la información digitada.")
+  		builder.setMessage("¿Esta seguro de que desea salir? ")
   		   .setCancelable(false)
   		   .setPositiveButton("Sí", new DialogInterface.OnClickListener() {
   		       public void onClick(DialogInterface dialog, int id) {
   		    	 SwitchVisualization(false);
-  		   		finish();
+				 PRIM = 0;
+  		   		 //this.finalize();
+				 finish();
   		   			 }
   		   })
   		   .setNegativeButton("No", new DialogInterface.OnClickListener() {
   		       public void onClick(DialogInterface dialog, int id) {
-  		     	
-  		    	   
   		       }
   		   });
   		AlertDialog alert = builder.create();
   		alert.show();
-      	
-      	
 	    }
 	 
 		
   	
 	  private class LoadFuelData extends AsyncTask<Void, Integer, Void>  
-	    {  
-	        //Before running code in separate thread  
-	        @Override  
+	    {
+			ProgressDialog dialog;
+	        @Override
 	        protected void onPreExecute()  
-	        {  
-	        //	progressDialog = ProgressDialog.show(FuelTank.this,"Cargando...",  
-	        	//	    "Cargando información, favor espere...", false, false);
-	        }  
-	  
-	        //The code to be executed in a background thread.  
+	        {
+				if(PRIM <= 0) {
+					PRIM=1;
+					if(!((Activity) context).isFinishing())
+					{
+						dialog = ProgressDialog.show(FuelTank.this, "",
+								"Cargando. por favor espere...", true);
+						dialog.show();
+					}
+				}
+	        }
 	        @Override  
 	        protected Void doInBackground(Void... params)  
-	        {  
-	            /* This is just a code that delays the thread execution 4 times, 
-	             * during 850 milliseconds and updates the current progress. This 
-	             * is where the code that is going to be executed on a background 
-	             * thread must be placed. 
-	             */  
-	        	 StrictMode.setThreadPolicy(policy); 
+	        {
+	        	StrictMode.setThreadPolicy(policy);
 	     		try{
-      			
-      			String result = null;
-      	    	InputStream is = null;
-      	    	SimpleDateFormat sdfM = new SimpleDateFormat("MM");
-      	    	SimpleDateFormat sdfY = new SimpleDateFormat("yyyy");
-          		
-      	    	String MONTH = sdfM.format(new Date()); 
-      	    	String YEAR = sdfY.format(new Date()); 
-		    		
-      	    	
-      	    	String v1 = "'"+"CODIGO"+"'";
-      	    	String v2 = "'"+"LICENCIA"+"'";
-      	  	ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
-    	      	nameValuePairs.add(new BasicNameValuePair("codigo",v1));
-    	      	nameValuePairs.add(new BasicNameValuePair("licencia",v2));
-
-      		
-      	    
-      	   
-      	
-    
-      	//apartir de aqui carga ruta
-      		try
-      		{
-      	    	        HttpClient httpclient = new DefaultHttpClient();
-      	    	        HttpPost httppost = new HttpPost(MainMenu.URL+"checkTankStatus.php");
-      	    	        httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-      	    	        HttpResponse response = httpclient.execute(httppost); 
-      	    	        HttpEntity entity = response.getEntity();
-      	    	        is = entity.getContent();
-      	    	        Log.e("log_tag", "connection success ");
-      	    	     //   Toast.makeText(getApplicationContext(), "pass", Toast.LENGTH_SHORT).show();
-      		}
-      	catch(Exception e)
-      		{
-      	    	        Log.e("log_tag", "Error in http connection "+e.toString());
-      	    	//        Toast.makeText(getApplicationContext(), "Connection fail", Toast.LENGTH_SHORT).show();
-      	  //  	  	Toast.makeText(getApplicationContext(), "No se encuentra conectado a la red.Verifique conexión de VPN.", Toast.LENGTH_SHORT).show();
-      		}
-      	    	//convert response to string
-      		try{
-      			
-      	    	        BufferedReader reader = new BufferedReader(new InputStreamReader(is,"ISO-8859-1"),8);
-      	    	        StringBuilder sb = new StringBuilder();
-      	    	        String line = null;
-      	    	        while ((line = reader.readLine()) != null) 
-      	    	        {
-      	    	                sb.append(line + "\n");
-      	    	        }
-      	    	        is.close();
-      	    	        result=sb.toString();
-      		}
-      		catch(Exception e)
-      		{
-      	    	       Log.e("log_tag", "Error converting result "+e.toString());
-      		}
-      	int counter=0;
-      	    	//parse json data
-      	    	try{
-      	     
-
-      	    	 	JSONArray jArray = new JSONArray(result);
-      	    		for(int i=0;i<jArray.length();i++)  
-      	            {
-      	    			try{
-      	    		   	JSONObject no = jArray.getJSONObject(i);
-      	    		    String placa=no.getString("TankID");
-      	    		    try{
-      	    		    TANKNAME=placa;
-      	    
-      	    		    String goal=no.getString("TankSize");
-      	    		MAXVAL=goal;
-      	  	    String maxana=no.getString("TankAnalog");
-  	    		      MAXANALOG=maxana;
-      	    		  String consumption=no.getString("analog1");
-      	    		  CURRENTANALOG=consumption;
-      	    		  String date=no.getString("created_on");
-      	    		  LASTUPLOAD=date;
-
-      	    		    }catch(Exception e){}
-      		            counter++;
-      		   
-      	    			}catch(Exception e)
-      		          	{ 
-      		          	}
-      		            }
-      	    	}
-      	    	catch(JSONException e)
-      	    	{
-      	    	        Log.e("log_tag", "Error parsing data "+e.toString()+Integer.toString(counter));
-      	     	} catch (IllegalArgumentException e) {
-      				// TODO Auto-generated catch block
-      				e.printStackTrace();
-      			} 	
+					String result = null;
+					InputStream is = null;
+					String v1 = "'"+IDTANK+"'";
+					String v2 = "'"+COMPANY+"'";
+					ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+					nameValuePairs.add(new BasicNameValuePair("tankid",v1));
+					nameValuePairs.add(new BasicNameValuePair("company",v2));
+					try
+					{
+								HttpClient httpclient = new DefaultHttpClient();
+								HttpPost httppost = new HttpPost(MainMenu.URL+"getFuelTankAmount.php");
+								httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+								HttpResponse response = httpclient.execute(httppost);
+								HttpEntity entity = response.getEntity();
+								is = entity.getContent();
+								Log.e("log_tag", "connection success ");
+					}
+				catch(Exception e)
+					{
+								Log.e("log_tag", "Error in http connection "+e.toString());
+					}
+					try{
+								BufferedReader reader = new BufferedReader(new InputStreamReader(is,"ISO-8859-1"),8);
+								StringBuilder sb = new StringBuilder();
+								String line = null;
+								while ((line = reader.readLine()) != null)
+								{
+										sb.append(line + "\n");
+								}
+								is.close();
+								result=sb.toString();
+								Log.e("RESULT",result);
+					}
+					catch(Exception e)
+					{
+							   Log.e("log_tag", "Error converting result "+e.toString());
+					}
+					int counter=0;
+					try{
+						JSONArray jArray = new JSONArray(result);
+						for(int i=0;i<jArray.length();i++)
+						{
+							try
+							{
+								JSONObject no =jArray.getJSONObject(i);
+								try{
+									String am=no.getString("TankAmount");
+									String max=no.getString("TankSize");
+									String nam=no.getString("TankDescription");
+									String last=no.getString("LastUpdate");
+									AMOUNT =am;
+									SIZE = max;
+									TANKNAME = nam;
+									LASTUPLOAD = last;
+									Log.e("A-",AMOUNT);
+									Log.e("S-",SIZE);
+									Log.e("TN-",TANKNAME);
+									Log.e("LU-",LASTUPLOAD);
+								}catch(Exception e){
+									Log.e("ERROR OBJ",e.toString());
+								}
+								counter++;
+							}catch(Exception e)
+							{
+							}
+						}
+					}
+					catch(Exception e)
+					{
+							Log.e("ERROR1", "Error parsing data "+e.toString()+Integer.toString(counter));
+					}
       			}catch(Exception e)
       	    	{
       		        Log.e("log_tag", "Active el VPN para aplicar esta opción.");
-      		}
-	     	
-	      	
-	     
+      			}
 	            return null;  
-	        }  
-	  
-	        //Update the progress  
+	        }
 	        @Override  
-	        protected void onProgressUpdate(Integer... values)  
-	        {  
-	            //set the current progress of the progress dialog  
-	   //         progressDialog.setProgress(values[0]);  
-	  
-	        }  
-	  
-	        //after executing the code in the thread  
-	        @Override  
+	        protected void onProgressUpdate(Integer... values)
+	        {
+	        }
+	        @Override
 	        protected void onPostExecute(Void result)  
-	        {  
-	            //close the progress dialog  
-	     //       progressDialog.dismiss();  
-	            //initialize the View  
-
-
+	        {
 	            Double maxval =0.0;
 	          	try{
-	            maxval = Double.parseDouble(MAXVAL);}catch(Exception e){}
-	          	
-
-	        	Double maxanalog =10000000.0;
+	            	maxval = Double.parseDouble(SIZE);
+	          	}catch(Exception e){}
+				Double current =0.0;
 	        	try{
-	        	maxanalog = Double.parseDouble(MAXANALOG);}catch(Exception e){}
-	        	Double current =1500.0;
-	        	try{
-	        	current = Double.parseDouble(CURRENTANALOG);
-	        		}catch(Exception e){}
-	        	
-	          	double available= (current*maxval)/maxanalog;
-	         
-	          	
-	         	double percentage= (current)/maxanalog;
+	        		current = Double.parseDouble(AMOUNT);
+				}catch(Exception e){}
+				Double percentage = 0.0;
+				try{
+					percentage = current*100/maxval;
+				}catch(Exception e){}
 	        	DecimalFormat f = new DecimalFormat("##.00");
-	        	
 	        	LinearLayout Tanque = (LinearLayout)findViewById(R.id.bigtank);
-	        	
 	         	TextView Tankheader = (TextView)findViewById(R.id.tankname);
-	          	Tankheader.setText("Saldo disponible "+TANKNAME);
+	          	Tankheader.setText(TANKNAME);
 	         	TextView CurrentAmount = (TextView)findViewById(R.id.currenttank);
-	         	CurrentAmount.setText(f.format(available)+"L/"+f.format(percentage*100)+"%");
+	         	CurrentAmount.setText(f.format(current)+"L/"+f.format(percentage)+"%");
 	         	TextView date = (TextView)findViewById(R.id.date);
 	          	date.setText(LASTUPLOAD);
 	        	
@@ -360,41 +302,29 @@ public class FuelTank extends Activity {
 	          	else if(percentage>0.72&&percentage<=0.84){Tanque.setBackgroundResource(R.drawable.tankdiagram7);}
 	          	else if(percentage>0.84&&percentage<=0.96){Tanque.setBackgroundResource(R.drawable.tankdiagram8);}
 	          	else if(percentage>0.96){Tanque.setBackgroundResource(R.drawable.tankdiagram9);}
-
+				try {
+					dialog.cancel();
+				}
+				catch(Exception E){Log.e("Dialog",E.toString());}
 	        }
-	        
-	      
-	    
 	    }
 
 	  public void SwitchVisualization(Boolean state){
-			
 			if(state){
-				 final Handler handler = new Handler();
-	 		
-	 		
+				final Handler handler = new Handler();
 	 		    timer.scheduleAtFixedRate(new TimerTask() {
 	 		        @Override
 	 		        public void run() {
 	 		            handler.post(new Runnable() {
 	 		                public void run() {
-	 		            	  new LoadFuelData().execute();   	 	
-	 		                	
+	 		            	  new LoadFuelData().execute();
 	 		                }
 	 		            });
 	 		        }
-	 		    },10000,10000);	
+	 		    },10,10000);
 			}
-			
 			else{
-	  	
 			}
-  
 		  }
-	    
-	  
-
-
-
 }	
 	 

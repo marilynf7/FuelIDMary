@@ -87,13 +87,15 @@ public class MainMenu extends Activity {
 	    actionBar.show(); 
 		}
 
-	 public void onTransaction(View view) {  
+	 public void onTransaction(View viewf) {
 	   Intent intento = new Intent(getApplicationContext(), FuelOrderLoad.class);
 	    startActivity(intento);	 
 	 }
 	 public void onTank(View view) {  
-		  Intent intento = new Intent(getApplicationContext(), FuelTank.class);
-		  startActivity(intento);	 
+		  /*Intent intento = new Intent(getApplicationContext(), FuelTank.class);
+		  startActivity(intento);	*/
+		  Intent intento = new Intent(getApplicationContext(), FuelOrderBalanceLoad.class);
+		  startActivity(intento);
 	 }
 	 public void onRestriction(View view) {  
 		 Toast.makeText(getApplicationContext(), "Operación no habilitada.", Toast.LENGTH_SHORT).show();
