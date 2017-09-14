@@ -92,19 +92,16 @@ public class MainMenu extends Activity {
 	    startActivity(intento);	 
 	 }
 	 public void onTank(View view) {  
-		  /*Intent intento = new Intent(getApplicationContext(), FuelTank.class);
-		  startActivity(intento);	*/
 		  Intent intento = new Intent(getApplicationContext(), FuelOrderBalanceLoad.class);
 		  startActivity(intento);
 	 }
 	 public void onRestriction(View view) {  
-		 Toast.makeText(getApplicationContext(), "Operación no habilitada.", Toast.LENGTH_SHORT).show();
+		 Intent intento = new Intent(getApplicationContext(), FuelLimitLoad.class);
+         startActivity(intento);
 	 }
 	 public void onStats(View view) {  
 		 Toast.makeText(getApplicationContext(), "Operación no habilitada.", Toast.LENGTH_SHORT).show();
 	 }
-	  
- 
 	 
 	  @Override
 	    public void onBackPressed() {

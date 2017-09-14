@@ -1,0 +1,187 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true"
+    android:background="@drawable/splash">
+    <LinearLayout
+        android:id="@+id/login"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/fuelstationid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:paddingTop="10dp"
+            android:text="Restricciones de combustible"
+            android:textColor="@color/white"
+            android:textColorHint="#bbbbbb"
+            android:textSize="20sp"></TextView>
+
+        <TextView
+            android:id="@+id/car"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:paddingBottom="10dp"
+            android:textColor="@color/white"
+            android:textColorHint="#bbbbbb"
+            android:textSize="12sp"></TextView>
+
+        <LinearLayout
+            android:id="@+id/logi0n"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/frametransparent"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/nom2b4redeusuario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:text="Placa:"
+                android:textColor="@color/white"
+                android:textColorHint="#bbbbbb"
+                android:textSize="12sp"></TextView>
+
+            <TextView
+                android:id="@+id/plate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:textColor="@color/white"
+                android:textColorHint="#bbbbbb"
+                android:textSize="35sp"></TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/log0i0n"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.44"
+            android:background="@drawable/frametransparent"
+            android:orientation="vertical"
+            android:paddingEnd="20dp"
+            android:paddingStart="20dp"
+            android:paddingTop="1dp"
+            android:weightSum="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:weightSum="1">
+
+                <TextView
+                    android:id="@+id/date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.79"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textColorHint="#bbbbbb"
+                    android:textSize="18sp"></TextView>
+
+                <ImageView
+                    android:id="@+id/icon"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="3dp"
+                    android:contentDescription="@string/desc_list_item_icon"
+                    android:src="@drawable/fuelwhiteicon" />
+
+                <EditText
+                    android:id="@+id/limite"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/edittext_top_bg"
+                    android:clickable="false"
+                    android:editable="true"
+                    android:ems="10"
+                    android:focusable="false"
+                    android:gravity="center"
+                    android:hint=""
+                    android:inputType="numberDecimal"
+                    android:longClickable="false"
+                    android:padding="10dp"
+                    android:textColorHint="#bbbbbb"
+                    android:textSize="14sp"></EditText>
+
+                <TextView
+                    android:id="@+id/tipopopup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:autoLink="phone"
+                    android:text="Restricción actual (Litros)"
+                    android:textColor="@color/white"
+                    android:textColorLink="@color/main_grey_dk"
+                    android:textSize="@dimen/txt_14sp" />
+
+                <Spinner
+                    android:id="@+id/tclist"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:gravity="center"
+                    android:spinnerMode="dropdown"
+                    android:visibility="gone"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/tctext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autoLink="phone"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    android:text="Tipo de combustible"
+                    android:textColor="@color/white"
+                    android:textColorLink="@color/main_grey_dk"
+                    android:textSize="@dimen/txt_14sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="0.16"
+            android:gravity="bottom"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/btneditSave"
+            style="@style/DefaultButtonText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@drawable/frametransparent"
+            android:onClick="saveLoad"
+            android:padding="10dp"
+            android:text="Editar"
+            android:textColor="@color/white" />
+    </LinearLayout>
+</ScrollView>

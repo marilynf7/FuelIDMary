@@ -1,0 +1,7 @@
+#Wed Sep 13 17:18:10 CST 2017
+base.0=C\:\\Users\\Julio Castro\\AndroidStudioProjects\\FuelID\\FuelID Android Studio\\FuelID\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\8\\android-support-v7-appcompat_d3350b7ca3797dda280fdd2d84e706551d5859c8
+renamed.1=classes.dex
+renamed.0=classes2.dex
+file.1=C\:\\Users\\Julio Castro\\AndroidStudioProjects\\FuelID\\FuelID Android Studio\\FuelID\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\8\\android-support-v4_765b8191f0310f03bdce8740de291fca1d167c1f\\classes.dex
+base.1=C\:\\Users\\Julio Castro\\AndroidStudioProjects\\FuelID\\FuelID Android Studio\\FuelID\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\8\\android-support-v4_765b8191f0310f03bdce8740de291fca1d167c1f
+file.0=C\:\\Users\\Julio Castro\\AndroidStudioProjects\\FuelID\\FuelID Android Studio\\FuelID\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\8\\android-support-v7-appcompat_d3350b7ca3797dda280fdd2d84e706551d5859c8\\classes.dex

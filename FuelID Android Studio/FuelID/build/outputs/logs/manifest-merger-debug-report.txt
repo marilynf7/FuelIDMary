@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:2:1-123:12
+ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:2:1-141:12
 	package
 		ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:3:5-35
 	android:versionName
@@ -77,7 +77,7 @@ ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Stu
 	android:anyDensity
 		ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:23:9-34
 application
-ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:33:5-121:19
+ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:33:5-139:19
 MERGED from [FuelID Android Studio:android-support-v7-appcompat:unspecified] C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\android-support-v7-appcompat\build\intermediates\bundles\default\AndroidManifest.xml:22:5-20
 	android:label
 		ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:36:9-41
@@ -135,55 +135,73 @@ ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Stu
 		ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:66:14-60
 	android:name
 		ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:65:13-55
+activity#com.example.fuelid.FuelRestrictions
+ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:69:9-73:20
+	android:windowSoftInputMode
+		ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:72:13-52
+	android:configChanges
+		ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:71:13-59
+	android:name
+		ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:70:13-63
 activity#com.example.fuelid.FuelLoadEvent
-ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:70:20-74:24
+ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:75:9-79:24
 	android:windowSoftInputMode
-		ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:73:13-52
+		ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:78:13-52
 	android:configChanges
-		ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:72:14-60
+		ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:77:14-60
 	android:name
-		ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:71:13-60
+		ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:76:13-60
 activity#com.example.fuelid.FirstSettingsMod
-ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:76:25-80:24
+ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:81:25-85:24
 	android:windowSoftInputMode
-		ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:79:13-52
+		ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:84:13-52
 	android:configChanges
-		ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:78:14-60
+		ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:83:14-60
 	android:name
-		ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:77:13-63
+		ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:82:13-63
 activity#com.example.fuelid.FuelOrderLoad
-ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:83:12-95:24
+ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:88:12-100:24
 	android:label
-		ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:86:9-41
+		ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:91:9-41
 	android:windowSoftInputMode
-		ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:87:13-52
+		ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:92:13-52
 	android:configChanges
-		ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:85:16-62
+		ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:90:16-62
 	android:name
-		ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:84:13-60
+		ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:89:13-60
 intent-filter#android.hardware.usb.action.USB_ACCESSORY_ATTACHED
-ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:88:18-90:29
+ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:93:18-95:29
 action#android.hardware.usb.action.USB_ACCESSORY_ATTACHED
-ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:89:17-93
+ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:94:17-93
 	android:name
-		ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:89:25-90
+		ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:94:25-90
 meta-data#android.hardware.usb.action.USB_ACCESSORY_ATTACHED
-ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:91:13-94:25
+ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:96:13-99:25
 	android:resource
-		ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:93:17-57
+		ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:98:17-57
 	android:name
-		ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:92:17-82
+		ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:97:17-82
 activity#com.example.fuelid.FuelOrderBalanceLoad
-ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:96:9-108:20
+ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:101:9-113:20
 	android:label
-		ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:99:13-45
+		ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:104:13-45
 	android:windowSoftInputMode
-		ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:100:13-52
+		ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:105:13-52
 	android:configChanges
-		ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:98:13-59
+		ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:103:13-59
 	android:name
-		ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:97:13-67
+		ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:102:13-67
+activity#com.example.fuelid.FuelLimitLoad
+ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:114:9-126:20
+	android:label
+		ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:117:13-45
+	android:windowSoftInputMode
+		ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:118:13-52
+	android:configChanges
+		ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:116:13-59
+	android:name
+		ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:115:13-60
 service#com.example.fuelid.VoiceHelper
-ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:118:17-120:23
+ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:136:17-138:23
 	android:name
-		ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:119:13-58
+		ADDED from C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\AndroidManifest.xml:137:13-58

@@ -321,9 +321,6 @@ public class FuelSummary extends Activity {
 	            if(USERTYPE.equals("0")){}else{
 	            new QueryRecorridoExternal().execute();}
 	        }
-	        
-	      
-	    
 	    }
 	  
 	 

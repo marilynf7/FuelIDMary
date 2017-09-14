@@ -94,7 +94,7 @@ public class FuelOrderBalanceLoad extends Activity {
         setContentView(R.layout.loginscreenbalance);
         ActionBar actionBar = getActionBar();
         actionBar.hide();
-        actionBar.setSubtitle("Login");
+        actionBar.setSubtitle("Saldo tanque");
         actionBar.setTitle("FuelID");
         actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.Crimson)));
         actionBar.setDisplayShowTitleEnabled(false);  // required to force redraw, without, gray color
