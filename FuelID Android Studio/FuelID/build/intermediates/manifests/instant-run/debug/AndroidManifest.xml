@@ -63,6 +63,11 @@
             android:windowSoftInputMode="adjustPan" >
         </activity>
         <activity
+            android:name="com.example.fuelid.FuelRestrictions"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
             android:name="com.example.fuelid.FuelLoadEvent"
             android:configChanges="orientation|screenSize"
             android:windowSoftInputMode="adjustPan" >

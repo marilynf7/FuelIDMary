@@ -839,7 +839,7 @@ containing a value of this type.
         public static int expanded_menu=0x7f0b002c;
         public static int home=0x7f0b0003;
         public static int homeAsUp=0x7f0b000a;
-        public static int icon=0x7f0b002a;
+        public static int iconstat=0x7f0b002a;
         public static int ifRoom=0x7f0b0015;
         public static int image=0x7f0b0027;
         public static int listMode=0x7f0b0006;

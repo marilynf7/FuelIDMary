@@ -99,8 +99,9 @@ public class MainMenu extends Activity {
 		 Intent intento = new Intent(getApplicationContext(), FuelLimitLoad.class);
          startActivity(intento);
 	 }
-	 public void onStats(View view) {  
-		 Toast.makeText(getApplicationContext(), "Operación no habilitada.", Toast.LENGTH_SHORT).show();
+	 public void onStats(View view) {
+		 Intent intento = new Intent(getApplicationContext(), loginStats.class);
+		 startActivity(intento);
 	 }
 	 
 	  @Override

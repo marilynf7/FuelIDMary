@@ -1,11 +1,15 @@
 [
     {
+        "merged": "C:\\Users\\Julio Castro\\AndroidStudioProjects\\FuelID\\FuelID Android Studio\\FuelID\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\button_email.png",
+        "source": "C:\\Users\\Julio Castro\\AndroidStudioProjects\\FuelID\\FuelID Android Studio\\FuelID\\res\\drawable-hdpi\\button_email.png"
+    },
+    {
         "merged": "C:\\Users\\Julio Castro\\AndroidStudioProjects\\FuelID\\FuelID Android Studio\\FuelID\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\waopstitel.png",
         "source": "C:\\Users\\Julio Castro\\AndroidStudioProjects\\FuelID\\FuelID Android Studio\\FuelID\\res\\drawable-hdpi\\waopstitel.png"
     },
     {
-        "merged": "C:\\Users\\Julio Castro\\AndroidStudioProjects\\FuelID\\FuelID Android Studio\\FuelID\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\button_email.png",
-        "source": "C:\\Users\\Julio Castro\\AndroidStudioProjects\\FuelID\\FuelID Android Studio\\FuelID\\res\\drawable-hdpi\\button_email.png"
+        "merged": "C:\\Users\\Julio Castro\\AndroidStudioProjects\\FuelID\\FuelID Android Studio\\FuelID\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\error3.png",
+        "source": "C:\\Users\\Julio Castro\\AndroidStudioProjects\\FuelID\\FuelID Android Studio\\FuelID\\res\\drawable-hdpi\\error3.png"
     },
     {
         "merged": "C:\\Users\\Julio Castro\\AndroidStudioProjects\\FuelID\\FuelID Android Studio\\FuelID\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\button_twitter_large.png",
@@ -62,6 +66,10 @@
     {
         "merged": "C:\\Users\\Julio Castro\\AndroidStudioProjects\\FuelID\\FuelID Android Studio\\FuelID\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\incomplete.png",
         "source": "C:\\Users\\Julio Castro\\AndroidStudioProjects\\FuelID\\FuelID Android Studio\\FuelID\\res\\drawable-hdpi\\incomplete.png"
+    },
+    {
+        "merged": "C:\\Users\\Julio Castro\\AndroidStudioProjects\\FuelID\\FuelID Android Studio\\FuelID\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\check2.png",
+        "source": "C:\\Users\\Julio Castro\\AndroidStudioProjects\\FuelID\\FuelID Android Studio\\FuelID\\res\\drawable-hdpi\\check2.png"
     },
     {
         "merged": "C:\\Users\\Julio Castro\\AndroidStudioProjects\\FuelID\\FuelID Android Studio\\FuelID\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\fueltank.png",

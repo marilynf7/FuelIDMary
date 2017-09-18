@@ -8,6 +8,10 @@
         "source": "C:\\Users\\Julio Castro\\AndroidStudioProjects\\FuelID\\FuelID Android Studio\\FuelID\\res\\layout\\fuelunitstats.xml"
     },
     {
+        "merged": "C:\\Users\\Julio Castro\\AndroidStudioProjects\\FuelID\\FuelID Android Studio\\FuelID\\build\\intermediates\\res\\merged\\debug\\layout\\login_fuel_stats.xml",
+        "source": "C:\\Users\\Julio Castro\\AndroidStudioProjects\\FuelID\\FuelID Android Studio\\FuelID\\res\\layout\\login_fuel_stats.xml"
+    },
+    {
         "merged": "C:\\Users\\Julio Castro\\AndroidStudioProjects\\FuelID\\FuelID Android Studio\\FuelID\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_title_item.xml",
         "source": "C:\\Users\\Julio Castro\\AndroidStudioProjects\\FuelID\\FuelID Android Studio\\android-support-v7-appcompat\\build\\intermediates\\bundles\\default\\res\\layout\\abc_action_bar_title_item.xml"
     },
@@ -66,6 +70,10 @@
     {
         "merged": "C:\\Users\\Julio Castro\\AndroidStudioProjects\\FuelID\\FuelID Android Studio\\FuelID\\build\\intermediates\\res\\merged\\debug\\layout\\fuelrestrictions.xml",
         "source": "C:\\Users\\Julio Castro\\AndroidStudioProjects\\FuelID\\FuelID Android Studio\\FuelID\\res\\layout\\fuelrestrictions.xml"
+    },
+    {
+        "merged": "C:\\Users\\Julio Castro\\AndroidStudioProjects\\FuelID\\FuelID Android Studio\\FuelID\\build\\intermediates\\res\\merged\\debug\\layout\\loginstats.xml",
+        "source": "C:\\Users\\Julio Castro\\AndroidStudioProjects\\FuelID\\FuelID Android Studio\\FuelID\\res\\layout\\loginstats.xml"
     },
     {
         "merged": "C:\\Users\\Julio Castro\\AndroidStudioProjects\\FuelID\\FuelID Android Studio\\FuelID\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_decor_include.xml",
