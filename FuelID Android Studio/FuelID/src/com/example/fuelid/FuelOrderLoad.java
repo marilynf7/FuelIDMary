@@ -77,6 +77,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+//import io.sentry.context.Context;
+import io.sentry.Sentry;
+import io.sentry.event.BreadcrumbBuilder;
+import io.sentry.event.UserBuilder;
+
 public class FuelOrderLoad extends Activity {
 	
 	StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -98,29 +103,23 @@ public class FuelOrderLoad extends Activity {
    // private UserPermissionsDatabaseHelper databaseHelper;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-	super.onCreate(savedInstanceState);
-
-	  FontsOverride.setDefaultFont(this, "MONOSPACE", "fonts/MuseoSans300.otf");
-		
-	setContentView(R.layout.loginscreen);
-	ActionBar actionBar = getActionBar();
-	actionBar.hide();
-	
-	// more stuff here...
-
+		super.onCreate(savedInstanceState);
+	 	FontsOverride.setDefaultFont(this, "MONOSPACE", "fonts/MuseoSans300.otf");
+		setContentView(R.layout.loginscreen);
+		ActionBar actionBar = getActionBar();
+		actionBar.hide();
 	    actionBar.setSubtitle("Login");
 	    actionBar.setTitle("FuelID");
 	    actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.Crimson)));
 	    actionBar.setDisplayShowTitleEnabled(false);  // required to force redraw, without, gray color
 	    actionBar.setDisplayShowTitleEnabled(true);
 	    actionBar.setDisplayHomeAsUpEnabled(false);
-	    actionBar.show(); 
-	    
-	  // 	databaseHelper = new UserPermissionsDatabaseHelper(context.getApplicationContext());
-		PLATE="";
-	
-
-		}
+	    actionBar.show();
+	  	PLATE="";
+		Sentry.getContext().setUser(
+				new UserBuilder().setEmail("FuelOrderLoad").build()
+		);
+	}
 	
 
 	//Ejecuta validacion con lector de barra
@@ -195,8 +194,8 @@ public class FuelOrderLoad extends Activity {
 	 	    	      	//intent.putExtra("SCAN_MODE", "QR_CODE_MODE");
 	 	    	      	startActivityForResult(intent, 0);
 	 	       			 }catch(Exception e){
-	 	       				 
-	 	       			Toast.makeText(getApplicationContext(), "Debe instalar ZXING para utilizar esta opción.", Toast.LENGTH_SHORT).show();
+	 	       			 	Toast.makeText(getApplicationContext(), "Debe instalar ZXING para utilizar esta opción.", Toast.LENGTH_SHORT).show();
+						 	Sentry.capture(e);
 	 	       			 }
 	                return true;
 	       		 }else{ 
@@ -266,9 +265,10 @@ public class FuelOrderLoad extends Activity {
   		}
   	catch(Exception e)
   		{
-  	    	        Log.e("log_tag", "Error in http connection "+e.toString());
-  	    	//        Toast.makeText(getApplicationContext(), "Connection fail", Toast.LENGTH_SHORT).show();
-  	    	  	Toast.makeText(getApplicationContext(), "No se encuentra conectado a la red.Verifique conexión de VPN.", Toast.LENGTH_SHORT).show();
+			Log.e("log_tag", "Error in http connection "+e.toString());
+  	    	//Toast.makeText(getApplicationContext(), "Connection fail", Toast.LENGTH_SHORT).show();
+  	    	Toast.makeText(getApplicationContext(), "No se encuentra conectado a la red.Verifique conexión de VPN.", Toast.LENGTH_SHORT).show();
+			Sentry.capture(e);
   		}
   	    	//convert response to string
   		try{
@@ -285,7 +285,8 @@ public class FuelOrderLoad extends Activity {
   		}
   		catch(Exception e)
   		{
-  	    	       Log.e("log_tag", "Error converting result "+e.toString());
+  	    	Log.e("log_tag", "Error converting result "+e.toString());
+			Sentry.capture(e);
   		}
   	int counter=0;
   	    	//parse json data
@@ -312,20 +313,33 @@ public class FuelOrderLoad extends Activity {
       		            succesfull=true;
   		   
   	    			}catch(Exception e)
-  		          	{ 
+  		          	{
+						Sentry.capture(e);
   		          	}
-  		            }
+					try{
+						Sentry.getContext().setUser(
+								new UserBuilder().setEmail(USER).build()
+						);
+					}
+					catch(Exception e){
+						Log.e("ERROR SENTRY", e.toString());
+						Sentry.capture(e);
+					}
+				}
   	    	}
   	    	catch(JSONException e)
   	    	{
-  	    	        Log.e("log_tag", "Error parsing data "+e.toString()+Integer.toString(counter));
+  	    	    Log.e("log_tag", "Error parsing data "+e.toString()+Integer.toString(counter));
+				Sentry.capture(e);
   	     	} catch (IllegalArgumentException e) {
   				// TODO Auto-generated catch block
   				e.printStackTrace();
+				Sentry.capture(e);
   			} 	
   			}catch(Exception e)
   	    	{
   		        Log.e("log_tag", "Active el VPN para aplicar esta opción.");
+				Sentry.capture(e);
   		}
   	//	Cursor x =databaseHelper.getAllUserPermissionLines(Scanning);
   	     if(succesfull){
@@ -379,6 +393,7 @@ public class FuelOrderLoad extends Activity {
      	    	        Log.e("log_tag", "Error in http connection "+e.toString());
      	    	//        Toast.makeText(getApplicationContext(), "Connection fail", Toast.LENGTH_SHORT).show();
      	    	  	Toast.makeText(getApplicationContext(), "No se encuentra conectado a la red.Verifique conexión de VPN.", Toast.LENGTH_SHORT).show();
+					Sentry.capture(e);
      		}
      	    	//convert response to string
      		try{
@@ -395,7 +410,8 @@ public class FuelOrderLoad extends Activity {
      		}
      		catch(Exception e)
      		{
-     	    	       Log.e("log_tag", "Error converting result "+e.toString());
+     	    	Log.e("log_tag", "Error converting result "+e.toString());
+				Sentry.capture(e);
      		}
      	int counter=0;
      	    	//parse json data
@@ -419,7 +435,7 @@ public class FuelOrderLoad extends Activity {
      	    		    try{
      	    		    maxliter =   Normalizer.normalize(no.getString("CapacidadTanque"), Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "");
      	    		    }
-     	    		    catch(Exception e){}
+     	    		    catch(Exception e){Sentry.capture(e);}
      	    		    
      	    		    
      	    		    
@@ -428,20 +444,24 @@ public class FuelOrderLoad extends Activity {
      		            counter++;
      		           succesfull=true;
      	    			}catch(Exception e)
-     		          	{ 
+     		          	{
+							Sentry.capture(e);
      		          	}
      		            }
      	    	}
      	    	catch(JSONException e)
      	    	{
-     	    	        Log.e("log_tag", "Error parsing data "+e.toString()+Integer.toString(counter));
+     	    	    Log.e("log_tag", "Error parsing data "+e.toString()+Integer.toString(counter));
+					Sentry.capture(e);
      	     	} catch (IllegalArgumentException e) {
      				// TODO Auto-generated catch block
      				e.printStackTrace();
+					Sentry.capture(e);
      			} 	
      			}catch(Exception e)
      	    	{
      		        Log.e("log_tag", "Active el VPN para aplicar esta opción.");
+					Sentry.capture(e);
      		}
 	            if(succesfull){
 	            	fleetid.setBackgroundResource(R.drawable.edittext_green);	
@@ -497,9 +517,10 @@ public class FuelOrderLoad extends Activity {
 	  		}
 	  	catch(Exception e)
 	  		{
-	  	    	        Log.e("log_tag", "Error in http connection "+e.toString());
-	  	    	//        Toast.makeText(getApplicationContext(), "Connection fail", Toast.LENGTH_SHORT).show();
-	  	    	  	Toast.makeText(getApplicationContext(), "No se encuentra conectado a la red.Verifique conexión de VPN.", Toast.LENGTH_SHORT).show();
+	  	    	Log.e("log_tag", "Error in http connection "+e.toString());
+	  	    	//Toast.makeText(getApplicationContext(), "Connection fail", Toast.LENGTH_SHORT).show();
+	  	    	Toast.makeText(getApplicationContext(), "No se encuentra conectado a la red.Verifique conexión de VPN.", Toast.LENGTH_SHORT).show();
+				Sentry.capture(e);
 	  		}
 	  	    	//convert response to string
 	  		try{
@@ -516,7 +537,8 @@ public class FuelOrderLoad extends Activity {
 	  		}
 	  		catch(Exception e)
 	  		{
-	  	    	       Log.e("log_tag", "Error converting result "+e.toString());
+				Log.e("log_tag", "Error converting result "+e.toString());
+				Sentry.capture(e);
 	  		}
 	  	int counter=0;
 	  	    	//parse json data
@@ -546,20 +568,24 @@ public class FuelOrderLoad extends Activity {
 	      		            counter++;
 	      		          succesfull=true;
 	  	    			}catch(Exception e)
-	  		          	{ 
+	  		          	{
+							Sentry.capture(e);
 	  		          	}
 	  		            }
 	  	    	}
 	  	    	catch(JSONException e)
 	  	    	{
-	  	    	        Log.e("log_tag", "Error parsing data "+e.toString()+Integer.toString(counter));
+	  	    	    Log.e("log_tag", "Error parsing data "+e.toString()+Integer.toString(counter));
+					Sentry.capture(e);
 	  	     	} catch (IllegalArgumentException e) {
 	  				// TODO Auto-generated catch block
 	  				e.printStackTrace();
+					Sentry.capture(e);
 	  			} 	
 	  			}catch(Exception e)
 	  	    	{
 	  		        Log.e("log_tag", "Active el VPN para aplicar esta opción.");
+					Sentry.capture(e);
 	  		}
 	  	//	Cursor x =databaseHelper.getAllUserPermissionLines(Scanning);
 	  	    if(succesfull){

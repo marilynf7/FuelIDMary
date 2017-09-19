@@ -51,6 +51,11 @@ import java.util.Date;
 import java.util.List;
 import java.util.regex.Pattern;
 
+//import io.sentry.context.Context;
+import io.sentry.Sentry;
+import io.sentry.event.BreadcrumbBuilder;
+import io.sentry.event.UserBuilder;
+
 /**
  * Created by Julio Castro on 14/9/2017.
  */
@@ -120,7 +125,18 @@ public class FuelRestrictions extends Activity {
         plate.setText(PLATE);
         TextView car = (TextView)findViewById(R.id.car);
         car.setText(BRAND);
-
+        try{
+            Sentry.getContext().setUser(
+                    new UserBuilder().setEmail(USER).build()
+            );
+        }
+        catch(Exception e){
+            Log.e("ERROR SENTRY", e.toString());
+            Sentry.getContext().setUser(
+                    new UserBuilder().setEmail("FuelLoadEvent").build()
+            );
+            Sentry.capture(e);
+        }
         new LoadFuelData().execute();
 
     }
@@ -220,6 +236,7 @@ public class FuelRestrictions extends Activity {
                     Log.e("log_tag", "Error in http connection "+e.toString());
                     //        Toast.makeText(getApplicationContext(), "Connection fail", Toast.LENGTH_SHORT).show();
                     //  	  	Toast.makeText(getApplicationContext(), "No se encuentra conectado a la red.Verifique conexión de VPN.", Toast.LENGTH_SHORT).show();
+                    Sentry.capture(e);
                 }
                 try{
 
@@ -237,6 +254,7 @@ public class FuelRestrictions extends Activity {
                 catch(Exception e)
                 {
                     Log.e("log_tag", "Error converting result "+e.toString());
+                    Sentry.capture(e);
                 }
                 int counter=0;
                 //parse json data
@@ -260,17 +278,19 @@ public class FuelRestrictions extends Activity {
                                 String odometer=no.getString("Odometro");
                                 ODOMETER=odometer;
                                 EXISTRES = true;
-                            }catch(Exception e){}
+                            }catch(Exception e){Sentry.capture(e);}
                             counter++;
 
                         }catch(Exception e)
                         {
+                            Sentry.capture(e);
                         }
                     }
                 }
                 catch(JSONException e)
                 {
                     Log.e("log_tag", "Error parsing data "+e.toString()+Integer.toString(counter));
+                    Sentry.capture(e);
                     try{
                         JSONObject no =  new JSONObject(result);
                         String res=no.getString("re");
@@ -280,14 +300,17 @@ public class FuelRestrictions extends Activity {
                     }
                     catch(Exception x){
                         Log.e("ERROR C2",x.toString());
+                        Sentry.capture(e);
                     }
                 } catch (IllegalArgumentException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
+                    Sentry.capture(e);
                 }
             }catch(Exception e)
             {
                 Log.e("log_tag", "Active el VPN para aplicar esta opción.");
+                Sentry.capture(e);
             }
 
 
@@ -320,11 +343,13 @@ public class FuelRestrictions extends Activity {
                     try {
                         goal = Double.parseDouble(GOAL);
                     } catch (Exception e) {
+                        Sentry.capture(e);
                     }
                     Double consumption = 0.0;
                     try {
                         consumption = Double.parseDouble(CONSUMPTION);
                     } catch (Exception e) {
+                        Sentry.capture(e);
                     }
                     double available = (goal - consumption);
                     DecimalFormat f = new DecimalFormat("##.00");
@@ -335,6 +360,7 @@ public class FuelRestrictions extends Activity {
                     TextView Fecha = (TextView) findViewById(R.id.date);
                     //Fecha.setText("Ultima transacción " + FECHA.substring(0, 10));
                 } catch (Exception e) {
+                    Sentry.capture(e);
                 }
             }
             else{
@@ -389,6 +415,7 @@ public class FuelRestrictions extends Activity {
                        }
                        catch(Exception e){
                            Log.e("Error EJ",e.toString());
+                           Sentry.capture(e);
                        }
                    }
                    else{
@@ -397,6 +424,7 @@ public class FuelRestrictions extends Activity {
                        }
                        catch(Exception e){
                            Log.e("Error EJ2",e.toString());
+                           Sentry.capture(e);
                        }
                    }
                    Button but = (Button) findViewById(R.id.btneditSave);
@@ -413,6 +441,7 @@ public class FuelRestrictions extends Activity {
            }
            catch (Exception e){
                Log.e("ERROR CAMPO 1",e.toString());
+               Sentry.capture(e);
            }
         }
         else{
@@ -429,6 +458,7 @@ public class FuelRestrictions extends Activity {
             }
             catch (Exception e){
                 Log.e("ERROR CAMPO",e.toString());
+                Sentry.capture(e);
             }
         }
     }
@@ -485,6 +515,7 @@ public class FuelRestrictions extends Activity {
                 catch(Exception e)
                 {
                     Log.e("log_tag", "Error in http connection "+e.toString());
+                    Sentry.capture(e);
                 }
                 try{
                     BufferedReader reader = new BufferedReader(new InputStreamReader(is,"ISO-8859-1"),8);
@@ -501,6 +532,7 @@ public class FuelRestrictions extends Activity {
                 catch(Exception e)
                 {
                     Log.e("log_tag", "Error converting result "+e.toString());
+                    Sentry.capture(e);
                 }
                 int counter=0;
                 try{
@@ -511,23 +543,27 @@ public class FuelRestrictions extends Activity {
                             JSONObject no = jArray.getJSONObject(i);
                             try{
                                 RES = no.getString("res");
-                            }catch(Exception e){}
+                            }catch(Exception e){Sentry.capture(e);}
                             counter++;
                         }catch(Exception e)
                         {
+                            Sentry.capture(e);
                         }
                     }
                 }
                 catch(JSONException e)
                 {
                     Log.e("log_tag", "Error parsing data "+e.toString()+Integer.toString(counter));
+                    Sentry.capture(e);
                 } catch (IllegalArgumentException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
+                    Sentry.capture(e);
                 }
             }catch(Exception e)
             {
                 Log.e("log_tag", "Active el VPN para aplicar esta opción.");
+                Sentry.capture(e);
             }
             return null;
         }
@@ -563,6 +599,7 @@ public class FuelRestrictions extends Activity {
             }
             catch(Exception e){
                 Log.e("ERROR POST",e.toString());
+                Sentry.capture(e);
             }
         }
     }
@@ -635,6 +672,7 @@ public class FuelRestrictions extends Activity {
                 catch(Exception e)
                 {
                     Log.e("log_tag", "Error in http connection "+e.toString());
+                    Sentry.capture(e);
                 }
                 try{
                     BufferedReader reader = new BufferedReader(new InputStreamReader(is,"ISO-8859-1"),8);
@@ -651,6 +689,7 @@ public class FuelRestrictions extends Activity {
                 catch(Exception e)
                 {
                     Log.e("log_tag", "Error converting result "+e.toString());
+                    Sentry.capture(e);
                 }
                 int counter=0;
                 try{
@@ -661,23 +700,27 @@ public class FuelRestrictions extends Activity {
                             JSONObject no = jArray.getJSONObject(i);
                             try{
                                 RES = no.getString("res");
-                            }catch(Exception e){}
+                            }catch(Exception e){Sentry.capture(e);}
                             counter++;
                         }catch(Exception e)
                         {
+                            Sentry.capture(e);
                         }
                     }
                 }
                 catch(JSONException e)
                 {
                     Log.e("log_tag", "Error parsing data "+e.toString()+Integer.toString(counter));
+                    Sentry.capture(e);
                 } catch (IllegalArgumentException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
+                    Sentry.capture(e);
                 }
             }catch(Exception e)
             {
                 Log.e("log_tag", "Active el VPN para aplicar esta opción.");
+                Sentry.capture(e);
             }
             return null;
         }
@@ -717,6 +760,7 @@ public class FuelRestrictions extends Activity {
             }
             catch(Exception e){
                 Log.e("ERROR POST",e.toString());
+                Sentry.capture(e);
             }
         }
     }

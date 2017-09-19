@@ -1,4 +1,4 @@
-#Mon Sep 18 16:23:40 CST 2017
+#Tue Sep 19 15:42:08 CST 2017
 base.0=C\:\\Users\\Julio Castro\\AndroidStudioProjects\\FuelID\\FuelID Android Studio\\FuelID\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main
 renamed.0=classes.dex
 file.0=C\:\\Users\\Julio Castro\\AndroidStudioProjects\\FuelID\\FuelID Android Studio\\FuelID\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main\\classes.dex

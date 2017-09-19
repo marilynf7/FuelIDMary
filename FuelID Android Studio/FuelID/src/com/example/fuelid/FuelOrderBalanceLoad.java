@@ -69,6 +69,10 @@ package com.example.fuelid;
         import android.widget.Spinner;
         import android.widget.TextView;
         import android.widget.Toast;
+        //import io.sentry.context.Context;
+        import io.sentry.Sentry;
+        import io.sentry.event.BreadcrumbBuilder;
+        import io.sentry.event.UserBuilder;
 
 public class FuelOrderBalanceLoad extends Activity {
 
@@ -101,6 +105,10 @@ public class FuelOrderBalanceLoad extends Activity {
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(false);
         actionBar.show();
+
+        Sentry.getContext().setUser(
+                new UserBuilder().setEmail("FuelOrderBalanceLoad").build()
+        );
     }
     //Ejecuta validacion con lector de barra
     @Override
@@ -148,6 +156,7 @@ public class FuelOrderBalanceLoad extends Activity {
                         startActivityForResult(intent, 0);
                     }catch(Exception e){
                         Toast.makeText(getApplicationContext(), "Debe instalar ZXING para utilizar esta opción.", Toast.LENGTH_SHORT).show();
+                        Sentry.capture(e);
                     }
                     return true;
                 }else{
@@ -201,6 +210,7 @@ public class FuelOrderBalanceLoad extends Activity {
             {
                 Log.e("log_tag", "Error in http connection "+e.toString());
                 Toast.makeText(getApplicationContext(), "No se encuentra conectado a la red.Verifique conexión de VPN.", Toast.LENGTH_SHORT).show();
+                Sentry.capture(e);
             }
             try{
                 BufferedReader reader = new BufferedReader(new InputStreamReader(is,"ISO-8859-1"),8);
@@ -216,6 +226,7 @@ public class FuelOrderBalanceLoad extends Activity {
             catch(Exception e)
             {
                 Log.e("log_tag", "Error converting result "+e.toString());
+                Sentry.capture(e);
             }
             int counter=0;
             try{
@@ -239,19 +250,32 @@ public class FuelOrderBalanceLoad extends Activity {
 
                     }catch(Exception e)
                     {
+                        Sentry.capture(e);
+                    }
+                    try{
+                        Sentry.getContext().setUser(
+                                new UserBuilder().setEmail(USER).build()
+                        );
+                    }
+                    catch(Exception e){
+                        Log.e("ERROR SENTRY", e.toString());
+                        Sentry.capture(e);
                     }
                 }
             }
             catch(JSONException e)
             {
                 Log.e("log_tag", "Error parsing data "+e.toString()+Integer.toString(counter));
+                Sentry.capture(e);
             } catch (IllegalArgumentException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
+                Sentry.capture(e);
             }
         }catch(Exception e)
         {
             Log.e("log_tag", "Active el VPN para aplicar esta opción.");
+            Sentry.capture(e);
         }
         if(succesfull){
             user.setBackgroundResource(R.drawable.edittext_green);
@@ -297,6 +321,7 @@ public class FuelOrderBalanceLoad extends Activity {
                 Log.e("log_tag", "Error in http connection "+e.toString());
                 //        Toast.makeText(getApplicationContext(), "Connection fail", Toast.LENGTH_SHORT).show();
                 Toast.makeText(getApplicationContext(), "No se encuentra conectado a la red.Verifique conexión de VPN.", Toast.LENGTH_SHORT).show();
+                Sentry.capture(e);
             }
             //convert response to string
             try{
@@ -314,6 +339,7 @@ public class FuelOrderBalanceLoad extends Activity {
             catch(Exception e)
             {
                 Log.e("log_tag", "Error converting result "+e.toString());
+                Sentry.capture(e);
             }
             int counter=0;
             //parse json data
@@ -344,19 +370,23 @@ public class FuelOrderBalanceLoad extends Activity {
                         succesfull=true;
                     }catch(Exception e)
                     {
+                        Sentry.capture(e);
                     }
                 }
             }
             catch(JSONException e)
             {
                 Log.e("log_tag", "Error parsing data "+e.toString()+Integer.toString(counter));
+                Sentry.capture(e);
             } catch (IllegalArgumentException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
+                Sentry.capture(e);
             }
         }catch(Exception e)
         {
             Log.e("log_tag", "Active el VPN para aplicar esta opción.");
+            Sentry.capture(e);
         }
         //	Cursor x =databaseHelper.getAllUserPermissionLines(Scanning);
         if(succesfull){

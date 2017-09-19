@@ -128,7 +128,7 @@
     android:contentDescription="@string/desc_list_item_icon"
           android:src="@drawable/fueltank"
     />
-                
+
 
                 <TextView
                     android:id="@+id/metapopup"

@@ -4,6 +4,7 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
+
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
@@ -43,6 +44,10 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+//import io.sentry.context.Context;
+import io.sentry.Sentry;
+import io.sentry.event.BreadcrumbBuilder;
+import io.sentry.event.UserBuilder;
 /**
  * Created by Julio Castro on 13/9/2017.
  */
@@ -69,6 +74,9 @@ public class FuelLimitLoad extends Activity {
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(false);
         actionBar.show();
+         Sentry.getContext().setUser(
+                 new UserBuilder().setEmail("FuelLimitLoad").build()
+         );
     }
 
     @Override
@@ -115,6 +123,7 @@ public class FuelLimitLoad extends Activity {
                         //intent.putExtra("SCAN_MODE", "QR_CODE_MODE");
                         startActivityForResult(intent, 0);
                     }catch(Exception e){
+                        Sentry.capture(e);
                         Toast.makeText(getApplicationContext(), "Debe instalar ZXING para utilizar esta opción.", Toast.LENGTH_SHORT).show();
                     }
                     return true;
@@ -167,6 +176,7 @@ public class FuelLimitLoad extends Activity {
             }
             catch(Exception e)
             {
+                Sentry.capture(e);
                 Log.e("log_tag", "Error in http connection "+e.toString());
                 Toast.makeText(getApplicationContext(), "No se encuentra conectado a la red.Verifique conexión de VPN.", Toast.LENGTH_SHORT).show();
             }
@@ -183,6 +193,7 @@ public class FuelLimitLoad extends Activity {
             }
             catch(Exception e)
             {
+                Sentry.capture(e);
                 Log.e("log_tag", "Error converting result "+e.toString());
             }
             int counter=0;
@@ -206,25 +217,38 @@ public class FuelLimitLoad extends Activity {
                         succesfull=true;
                     }catch(Exception e)
                     {
+                        Sentry.capture(e);
+                    }
+                    try{
+                        Sentry.getContext().setUser(
+                                new UserBuilder().setEmail(USER).build()
+                        );
+                    }
+                    catch(Exception e){
+                        Log.e("ERROR SENTRY", e.toString());
+                        Sentry.capture(e);
                     }
                 }
             }
             catch(JSONException e)
             {
+                Sentry.capture(e);
                 Log.e("log_tag", "Error parsing data "+e.toString()+Integer.toString(counter));
             } catch (IllegalArgumentException e) {
+                Sentry.capture(e);
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         }catch(Exception e)
         {
+            Sentry.capture(e);
             Log.e("log_tag", "Active el VPN para aplicar esta opción.");
         }
         if(succesfull){
             user.setBackgroundResource(R.drawable.edittext_green);
             COUNTER++;
         }else{
-            Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+            Vibrator v = (Vibrator) getSystemService(android.content.Context.VIBRATOR_SERVICE);
             v.vibrate(400);
             user.setBackgroundResource(R.drawable.edittext_red);
             Toast.makeText(getBaseContext(), "Usuario no existente o no tiene permisos para accesar esta operación.", Toast.LENGTH_LONG).show();
@@ -257,6 +281,7 @@ public class FuelLimitLoad extends Activity {
             }
             catch(Exception e)
             {
+                Sentry.capture(e);
                 Log.e("log_tag", "Error in http connection "+e.toString());
                 Toast.makeText(getApplicationContext(), "No se encuentra conectado a la red.Verifique conexión de VPN.", Toast.LENGTH_SHORT).show();
             }
@@ -273,6 +298,7 @@ public class FuelLimitLoad extends Activity {
             }
             catch(Exception e)
             {
+                Sentry.capture(e);
                 Log.e("log_tag", "Error converting result "+e.toString());
             }
             int counter=0;
@@ -293,31 +319,35 @@ public class FuelLimitLoad extends Activity {
                         try{
                             maxliter =   Normalizer.normalize(no.getString("CapacidadTanque"), Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "");
                         }
-                        catch(Exception e){}
+                        catch(Exception e){Sentry.capture(e);}
                         MAXLITER=maxliter;
                         counter++;
                         succesfull=true;
                     }catch(Exception e)
                     {
+                        Sentry.capture(e);
                     }
                 }
             }
             catch(JSONException e)
             {
+                Sentry.capture(e);
                 Log.e("log_tag", "Error parsing data "+e.toString()+Integer.toString(counter));
             } catch (IllegalArgumentException e) {
+                Sentry.capture(e);
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         }catch(Exception e)
         {
+            Sentry.capture(e);
             Log.e("log_tag", "Active el VPN para aplicar esta opción.");
         }
         if(succesfull){
             fleetid.setBackgroundResource(R.drawable.edittext_green);
             COUNTER++;
         }else{
-            Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+            Vibrator v = (Vibrator) getSystemService(android.content.Context.VIBRATOR_SERVICE);
             v.vibrate(400);
             fleetid.setBackgroundResource(R.drawable.edittext_red);
             Toast.makeText(getBaseContext(), "Unidad no encontrada.Intente de nuevo.", Toast.LENGTH_LONG).show();
@@ -331,7 +361,7 @@ public class FuelLimitLoad extends Activity {
                 Intent intentemoslo = new Intent(getApplicationContext() ,VoiceHelper.class);
                 intentemoslo.putExtra("voz","Verifique su usuario para avanzar");
                 startService(intentemoslo);
-                Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                Vibrator v = (Vibrator) getSystemService(android.content.Context.VIBRATOR_SERVICE);
                 v.vibrate(400);
             }
             if(COUNTER==1){
@@ -339,7 +369,7 @@ public class FuelLimitLoad extends Activity {
                 Intent intentemoslo = new Intent(getApplicationContext() ,VoiceHelper.class);
                 intentemoslo.putExtra("voz","Verifique la estación para avanzar");
                 startService(intentemoslo);
-                Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                Vibrator v = (Vibrator) getSystemService(android.content.Context.VIBRATOR_SERVICE);
                 v.vibrate(400);
             }
             if(COUNTER==2){

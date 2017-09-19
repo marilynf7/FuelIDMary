@@ -67,6 +67,11 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+//import io.sentry.context.Context;
+import io.sentry.Sentry;
+import io.sentry.event.BreadcrumbBuilder;
+import io.sentry.event.UserBuilder;
+
 
 public class FuelSummary extends Activity {
 	
@@ -131,7 +136,18 @@ public class FuelSummary extends Activity {
 	  	fuelstationid.setText(STATION);
 	  	TextView autobrand = (TextView)findViewById(R.id.autobrand);
 	  	autobrand.setText(BRAND);
-	
+		try{
+			Sentry.getContext().setUser(
+					new UserBuilder().setEmail(USER).build()
+			);
+		}
+		catch(Exception e){
+			Log.e("ERROR SENTRY", e.toString());
+			Sentry.getContext().setUser(
+					new UserBuilder().setEmail("FuelLoadEvent").build()
+			);
+			Sentry.capture(e);
+		}
 		new LoadFuelData().execute();  
 		
 		}
@@ -223,6 +239,7 @@ public class FuelSummary extends Activity {
         	    	        Log.e("log_tag", "Error in http connection "+e.toString());
         	    	//        Toast.makeText(getApplicationContext(), "Connection fail", Toast.LENGTH_SHORT).show();
         	  //  	  	Toast.makeText(getApplicationContext(), "No se encuentra conectado a la red.Verifique conexión de VPN.", Toast.LENGTH_SHORT).show();
+						Sentry.capture(e);
         		}
         	    	//convert response to string
         		try{
@@ -239,7 +256,8 @@ public class FuelSummary extends Activity {
         		}
         		catch(Exception e)
         		{
-        	    	       Log.e("log_tag", "Error converting result "+e.toString());
+        	    	Log.e("log_tag", "Error converting result "+e.toString());
+					Sentry.capture(e);
         		}
         	int counter=0;
         	    	//parse json data
@@ -260,28 +278,29 @@ public class FuelSummary extends Activity {
         	    		    FECHA=date;
         	    		    String odometer=no.getString("Odometro");
         	                ODOMETER=odometer;
-        	    		    }catch(Exception e){}
+        	    		    }catch(Exception e){Sentry.capture(e);}
         		            counter++;
         		   
         	    			}catch(Exception e)
-        		          	{ 
+        		          	{
+								Sentry.capture(e);
         		          	}
         		            }
         	    	}
         	    	catch(JSONException e)
         	    	{
         	    	        Log.e("log_tag", "Error parsing data "+e.toString()+Integer.toString(counter));
+							Sentry.capture(e);
         	     	} catch (IllegalArgumentException e) {
         				// TODO Auto-generated catch block
         				e.printStackTrace();
+						Sentry.capture(e);
         			} 	
         			}catch(Exception e)
         	    	{
         		        Log.e("log_tag", "Active el VPN para aplicar esta opción.");
-        		}
-	     	
-	      	
-	     
+						Sentry.capture(e);
+        	    	}
 	            return null;  
 	        }  
 	  
@@ -306,10 +325,10 @@ public class FuelSummary extends Activity {
 	            Double goal =0.0;
 	          	try{
 	           goal = Double.parseDouble(GOAL);
-	            }catch(Exception e){}
+	            }catch(Exception e){Sentry.capture(e);}
 	        	Double consumption =0.0;
 	        	try{
-	        	consumption = Double.parseDouble(CONSUMPTION);}catch(Exception e){}
+	        	consumption = Double.parseDouble(CONSUMPTION);}catch(Exception e){Sentry.capture(e);}
 	          	double available= (goal-consumption);
 	        	DecimalFormat f = new DecimalFormat("##.00");
 	        	
@@ -317,7 +336,7 @@ public class FuelSummary extends Activity {
 	          	AVAILABLE=available;
 	          	Disponible.setText(AVAILABLE+" L");
 	          	TextView Fecha = (TextView)findViewById(R.id.date);
-	          	Fecha.setText(" "+FECHA.substring(0, 10));}catch(Exception e){}
+	          	Fecha.setText(" "+FECHA.substring(0, 10));}catch(Exception e){Sentry.capture(e);}
 	            if(USERTYPE.equals("0")){}else{
 	            new QueryRecorridoExternal().execute();}
 	        }
@@ -440,22 +459,23 @@ public class FuelSummary extends Activity {
 	 	               recorrido=reset.getString("RECORRIDO");
 	 	            }
 	 	          try{
-	 				 odometro = Double.parseDouble(recorrido);}catch(Exception e){}
+	 				 odometro = Double.parseDouble(recorrido);}catch(Exception e){Sentry.capture(e);}
 		          try{
-		 		     odometroviejo = Double.parseDouble(ODOMETER);}catch(Exception e){}
+		 		     odometroviejo = Double.parseDouble(ODOMETER);}catch(Exception e){Sentry.capture(e);}
 		
 		          serverqueried=true;
 		          try{
 		          NEWODOMETER=(odometro+odometroviejo)+"";
 		          }catch(Exception e){
 		        	USERTYPE="0";
-		        	  
+					  Sentry.capture(e);
 		          }
 	 	            DbConn.close();
 
 	 	        } catch (Exception e)
 	 	        {
 	 	            Log.e("Error connection","-" + e.getMessage()+"-"+e.toString());
+					Sentry.capture(e);
 	 	        }
 	     	
 	    //    	    Log.e("--*RESULTADOS: ",error);

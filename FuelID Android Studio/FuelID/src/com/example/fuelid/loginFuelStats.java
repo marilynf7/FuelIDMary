@@ -46,6 +46,11 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.regex.Pattern;
 
+//import io.sentry.context.Context;
+import io.sentry.Sentry;
+import io.sentry.event.BreadcrumbBuilder;
+import io.sentry.event.UserBuilder;
+
 /**
  * Created by Julio Castro on 18/9/2017.
  */
@@ -88,6 +93,18 @@ public class loginFuelStats extends Activity {
         Log.e("USER ----------- ",USER);
         TextView plate = (TextView) findViewById(R.id.platestat);
         plate.setText(PLATE);
+        try{
+            Sentry.getContext().setUser(
+                    new UserBuilder().setEmail(USER).build()
+            );
+        }
+        catch(Exception e){
+            Log.e("ERROR SENTRY", e.toString());
+            Sentry.getContext().setUser(
+                    new UserBuilder().setEmail("loginFuelStats").build()
+            );
+            Sentry.capture(e);
+        }
         new LoadStatsData().execute();
     }
 
@@ -182,6 +199,7 @@ public class loginFuelStats extends Activity {
                 catch(Exception e)
                 {
                     Log.e("log_tag", "Error in http connection "+e.toString());
+                    Sentry.capture(e);
                 }
                 try{
                     BufferedReader reader = new BufferedReader(new InputStreamReader(is,"ISO-8859-1"),8);
@@ -198,6 +216,7 @@ public class loginFuelStats extends Activity {
                 catch(Exception e)
                 {
                     Log.e("log_tag", "Error converting result "+e.toString());
+                    Sentry.capture(e);
                 }
                 int counter=0;
                 try{
@@ -228,20 +247,24 @@ public class loginFuelStats extends Activity {
                                 Log.e("META-",META);
                             }catch(Exception e){
                                 Log.e("ERROR OBJ",e.toString());
+                                Sentry.capture(e);
                             }
                             counter++;
                         }catch(Exception e)
                         {
+                            Sentry.capture(e);
                         }
                     }
                 }
                 catch(Exception e)
                 {
                     Log.e("ERROR1", "Error parsing data "+e.toString()+Integer.toString(counter));
+                    Sentry.capture(e);
                 }
             }catch(Exception e)
             {
                 Log.e("log_tag", "Active el VPN para aplicar esta opción.");
+                Sentry.capture(e);
             }
             return null;
         }
@@ -268,11 +291,13 @@ public class loginFuelStats extends Activity {
                     image.setImageResource(R.drawable.check2);
                 }
             }
-            catch (Exception e){Log.e("Dialog",e.toString());}
+            catch (Exception e){Log.e("Dialog",e.toString());
+                Sentry.capture(e);}
             try {
                 dialog.cancel();
             }
-            catch(Exception E){Log.e("Dialog",E.toString());}
+            catch(Exception E){Log.e("Dialog",E.toString());
+                Sentry.capture(E);}
         }
     }
 

@@ -57,13 +57,20 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import io.sentry.Sentry;
+import io.sentry.android.AndroidSentryClientFactory;
+//import io.sentry.context.Context;
+import io.sentry.event.BreadcrumbBuilder;
+import io.sentry.event.UserBuilder;
+
+
 public class MainMenu extends Activity {
 	
 	StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
 	private static final Pattern KEYCODE_PATTERN = Pattern.compile("KEYCODE_(\\w)");
 	private static final int REQUEST_CODE = 1234;
 	public  static String URL="http://gps.mifibra.net/FUELIDPHP/";
-	final Context context = this;
+	final android.content.Context context = this;
 	public String[] estaciones;
 	final String PREFS_NAME = "MyPrefsFile";
     private UserPermissionsDatabaseHelper databaseHelper;
@@ -84,7 +91,15 @@ public class MainMenu extends Activity {
 		   actionBar.setDisplayShowTitleEnabled(false);  // required to force redraw, without, gray color
 	    actionBar.setDisplayShowTitleEnabled(true);
 	    actionBar.setDisplayHomeAsUpEnabled(false);
-	    actionBar.show(); 
+	    actionBar.show();
+
+		android.content.Context ctx = this.getApplicationContext();
+		String sentryDsn = "https://c68a8179ace94e9d936f56cddd7c5f53:69791b9f61754e44958eab1bc6076eb3@sentry.io/218195";
+		Sentry.init(sentryDsn, new AndroidSentryClientFactory(ctx));
+
+		Sentry.getContext().setUser(
+				new UserBuilder().setEmail("Main Menu").build()
+		);
 		}
 
 	 public void onTransaction(View viewf) {
@@ -100,8 +115,8 @@ public class MainMenu extends Activity {
          startActivity(intento);
 	 }
 	 public void onStats(View view) {
-		 Intent intento = new Intent(getApplicationContext(), loginStats.class);
-		 startActivity(intento);
+		 	 Intent intento = new Intent(getApplicationContext(), loginStats.class);
+			 startActivity(intento);
 	 }
 	 
 	  @Override

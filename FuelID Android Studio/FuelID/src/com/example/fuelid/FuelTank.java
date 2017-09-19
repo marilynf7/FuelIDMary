@@ -81,6 +81,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+//import io.sentry.context.Context;
+import io.sentry.Sentry;
+import io.sentry.event.BreadcrumbBuilder;
+import io.sentry.event.UserBuilder;
+
 public class FuelTank extends Activity {
 	
 	StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -116,6 +121,9 @@ public class FuelTank extends Activity {
         COMPANY=intent.getStringExtra("company");
 		Log.e("IDTANK ----------- ",IDTANK);
         Log.e("COMPANY ----------- ",COMPANY);
+		Sentry.getContext().setUser(
+				new UserBuilder().setEmail("FuelTank").build()
+		);
 	    SwitchVisualization(true);
 	}
 	
@@ -197,7 +205,9 @@ public class FuelTank extends Activity {
 					}
 				catch(Exception e)
 					{
-								Log.e("log_tag", "Error in http connection "+e.toString());
+						Log.e("log_tag", "Error in http connection "+e.toString());
+						Sentry.capture(e);
+
 					}
 					try{
 								BufferedReader reader = new BufferedReader(new InputStreamReader(is,"ISO-8859-1"),8);
@@ -213,7 +223,8 @@ public class FuelTank extends Activity {
 					}
 					catch(Exception e)
 					{
-							   Log.e("log_tag", "Error converting result "+e.toString());
+						Log.e("log_tag", "Error converting result "+e.toString());
+						Sentry.capture(e);
 					}
 					int counter=0;
 					try{
@@ -238,20 +249,24 @@ public class FuelTank extends Activity {
 									Log.e("LU-",LASTUPLOAD);
 								}catch(Exception e){
 									Log.e("ERROR OBJ",e.toString());
+									Sentry.capture(e);
 								}
 								counter++;
 							}catch(Exception e)
 							{
+								Sentry.capture(e);
 							}
 						}
 					}
 					catch(Exception e)
 					{
-							Log.e("ERROR1", "Error parsing data "+e.toString()+Integer.toString(counter));
+						Log.e("ERROR1", "Error parsing data "+e.toString()+Integer.toString(counter));
+						Sentry.capture(e);
 					}
       			}catch(Exception e)
       	    	{
       		        Log.e("log_tag", "Active el VPN para aplicar esta opción.");
+					Sentry.capture(e);
       			}
 	            return null;  
 	        }
@@ -265,15 +280,15 @@ public class FuelTank extends Activity {
 	            Double maxval =0.0;
 	          	try{
 	            	maxval = Double.parseDouble(SIZE);
-	          	}catch(Exception e){}
+	          	}catch(Exception e){Sentry.capture(e);}
 				Double current =0.0;
 	        	try{
 	        		current = Double.parseDouble(AMOUNT);
-				}catch(Exception e){}
+				}catch(Exception e){Sentry.capture(e);}
 				Double percentage = 0.0;
 				try{
 					percentage = current*100/maxval;
-				}catch(Exception e){}
+				}catch(Exception e){Sentry.capture(e);}
 	        	DecimalFormat f = new DecimalFormat("##.00");
 	        	LinearLayout Tanque = (LinearLayout)findViewById(R.id.bigtank);
 	         	TextView Tankheader = (TextView)findViewById(R.id.tankname);
@@ -296,7 +311,8 @@ public class FuelTank extends Activity {
 				try {
 					dialog.cancel();
 				}
-				catch(Exception E){Log.e("Dialog",E.toString());}
+				catch(Exception E){Log.e("Dialog",E.toString());
+					Sentry.capture(E);}
 	        }
 	    }
 

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="4" by="lint 2.3.3">
+
+    <issue
+        id="Instantiatable"
+        severity="Fatal"
+        message="This class should be public (android.support.v7.internal.widget.ActionBarView.HomeView)"
+        category="Correctness"
+        priority="6"
+        summary="Registered class is not instantiatable"
+        explanation="Activities, services, broadcast receivers etc. registered in the manifest file (or for custom views, in a layout file) must be &quot;instantiatable&quot; by the system, which means that the class must be public, it must have an empty public constructor, and if it&apos;s an inner class, it must be a static inner class.">
+        <location
+            file="C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\android\support\v7\internal\widget\ActionBarView$HomeView.class"/>
+    </issue>
+
+</issues>

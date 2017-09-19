@@ -74,6 +74,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+//import io.sentry.context.Context;
+import io.sentry.Sentry;
+import io.sentry.event.BreadcrumbBuilder;
+import io.sentry.event.UserBuilder;
+
 public class FuelLoadEvent extends Activity {
 	
 	StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -92,7 +97,7 @@ public class FuelLoadEvent extends Activity {
 	public Boolean timercompleted=false;
 	public Boolean terminado=false;
 	public Boolean MENOSDE1000KM=false;
-	final Context context = this;
+	final   Context context = this;
 	final String PREFS_NAME = "MyPrefsFile";
     private UserPermissionsDatabaseHelper databaseHelper;
 	@Override
@@ -149,7 +154,18 @@ public class FuelLoadEvent extends Activity {
 			plate.setText(PLATE);
 			TextView remainingamount = (TextView)findViewById(R.id.remainingamount);
 			remainingamount.setText(GOAL+" litros de saldo disponible.");
-			
+			try{
+				Sentry.getContext().setUser(
+						new UserBuilder().setEmail(USER).build()
+				);
+			}
+			catch(Exception e){
+				Log.e("ERROR SENTRY", e.toString());
+				Sentry.getContext().setUser(
+						new UserBuilder().setEmail("FuelLoadEvent").build()
+				);
+				Sentry.capture(e);
+			}
 		}
 	
 
@@ -178,15 +194,15 @@ public class FuelLoadEvent extends Activity {
 		    Double OdometerAvailable =0.0;
 		    Double maxLiter =0.0;
 		    try{
-		 	 Liter = Double.parseDouble(liter.getText().toString());}catch(Exception e){}
+		 	 Liter = Double.parseDouble(liter.getText().toString());}catch(Exception e){Sentry.capture(e);}
 		 	Double LiterAvailable = GOAL;
 		 	if(Liter<LiterAvailable){CumpleCombustible=true;}
 		    try{
-			 Odometer = Double.parseDouble(odometer.getText().toString());}catch(Exception e){}
+			 Odometer = Double.parseDouble(odometer.getText().toString());}catch(Exception e){Sentry.capture(e);}
 		    try{
-		    OdometerAvailable = Double.parseDouble(OLDODOMETER);}catch(Exception e){}
+		    OdometerAvailable = Double.parseDouble(OLDODOMETER);}catch(Exception e){Sentry.capture(e);}
 		    try{
-			maxLiter = Double.parseDouble(MAXLITER);}catch(Exception e){}
+			maxLiter = Double.parseDouble(MAXLITER);}catch(Exception e){Sentry.capture(e);}
 		    
 		    
 		 	if((Odometer>OdometerAvailable&&Odometer-OdometerAvailable <10000)||USERTYPE.equals("1")){CumpleOdometro=true;}
@@ -253,6 +269,7 @@ public class FuelLoadEvent extends Activity {
 	 			        	     TERMINUS=false;
 	 			        	        Log.e("log_tag", "Error in http connection "+e.toString());
 	 			        	        Toast.makeText(getApplicationContext(), "Error de conexión", Toast.LENGTH_SHORT).show();
+								Sentry.capture(e);
 	 			        	}
 	 			        	//convert response to string
 	 			        	try{
@@ -269,6 +286,7 @@ public class FuelLoadEvent extends Activity {
 	 			        	catch(Exception e)
 	 			        	{
 	 			        	       Log.e("log_tag", "Error converting result "+e.toString());
+									Sentry.capture(e);
 	 			           	}
 	 			        	try{
 	 			        	            //	JSONObject json_data = new JSONObject(result);
@@ -282,8 +300,9 @@ public class FuelLoadEvent extends Activity {
 	 			        	   {
 	 			        		
 	 			        	        Log.e("log_tag", "Error parsing data "+e.toString());
+								   Sentry.capture(e);
 	 			        	     //   Toast.makeText(getApplicationContext(), "JsonArray fail", Toast.LENGTH_SHORT).show();
-	 			        	    }}catch(Exception e){}
+	 			        	    }}catch(Exception e){Sentry.capture(e);}
 	 					        	
 	 			if(TERMINUS){       
 	 	      	Toast.makeText(getApplicationContext(), "Consumo registrado.", Toast.LENGTH_SHORT).show();	 
@@ -293,6 +312,7 @@ public class FuelLoadEvent extends Activity {
   	     		
    			} catch (Exception e) {
    			    e.printStackTrace();
+				Sentry.capture(e);
    			}
    			startService(intentemoslo);	
    		

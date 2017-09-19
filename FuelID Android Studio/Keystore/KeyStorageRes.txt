@@ -1,0 +1,5 @@
+FILE: C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\Keystore\FuelID.jks
+
+PASS: logixFuelID
+
+ALIAS: jlogix

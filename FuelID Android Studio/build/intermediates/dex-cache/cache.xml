@@ -3,12 +3,12 @@
 
     <item
         is-multidex="false"
-        jar="C:\Users\Julio Castro\Documents\FuelID Android Studio\android-support-v7-appcompat\build\intermediates\bundles\default\classes.jar"
+        jar="C:\Users\Julio Castro\.gradle\caches\modules-2\files-2.1\io.sentry\sentry\1.5.3\c909f50a947a0c8393700607b794c92b877d119a\sentry-1.5.3.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.3"
-        sha1="a90524b4b573a90b2ccfde672cf94fa5b3cb3f56">
-        <dex dex="C:\Users\Julio Castro\Documents\FuelID Android Studio\FuelID\build\intermediates\pre-dexed\debug\classes_b2a081f9302cbd93dcace718b4bef20132b6ec4e.jar" />
+        sha1="c909f50a947a0c8393700607b794c92b877d119a">
+        <dex dex="C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\build\intermediates\pre-dexed\debug\sentry-1.5.3_f32ec257112d7afd7ce616af9ea595ab6766b4c0.jar" />
     </item>
     <item
         is-multidex="false"
@@ -21,15 +21,6 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\Julio Castro\Documents\FuelID Android Studio\android-support-v7-appcompat\build\intermediates\bundles\default\libs\android-support-v7-appcompat.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="7fc0658c1ebf268a9ee0f1df40bc4937e34300f0">
-        <dex dex="C:\Users\Julio Castro\Documents\FuelID Android Studio\FuelID\build\intermediates\pre-dexed\debug\android-support-v7-appcompat_0ee011d72e6d556fd826f5cec058426ca2a97fe7.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\android-support-v7-appcompat\build\intermediates\bundles\default\libs\android-support-v7-appcompat.jar"
         jumboMode="false"
         optimize="true"
@@ -39,12 +30,21 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\Julio Castro\Documents\FuelID Android Studio\android-support-v7-appcompat\build\intermediates\bundles\default\libs\android-support-v4.jar"
+        jar="C:\Users\Julio Castro\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-core\2.8.7\8b46f39c78476fb848c81a49fa807a9e9506dddd\jackson-core-2.8.7.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.3"
-        sha1="4f136ba13caddef4d5c977dea2dca27969cdf24b">
-        <dex dex="C:\Users\Julio Castro\Documents\FuelID Android Studio\FuelID\build\intermediates\pre-dexed\debug\android-support-v4_4620990eb32298a34c1b7260c35dd15f53ff397d.jar" />
+        sha1="8b46f39c78476fb848c81a49fa807a9e9506dddd">
+        <dex dex="C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\build\intermediates\pre-dexed\debug\jackson-core-2.8.7_d10c6bdc0350240ddfb1a865f5e1060b6d12c974.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Julio Castro\.gradle\caches\modules-2\files-2.1\org.slf4j\slf4j-api\1.7.24\3f6b4bd4f8dbe8d4bea06d107a3826469b85c3e9\slf4j-api-1.7.24.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="3f6b4bd4f8dbe8d4bea06d107a3826469b85c3e9">
+        <dex dex="C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\build\intermediates\pre-dexed\debug\slf4j-api-1.7.24_6f7aa01fd627e1667c7c583c1bcc95995a65f138.jar" />
     </item>
     <item
         is-multidex="false"
@@ -54,6 +54,15 @@
         revision="25.0.3"
         sha1="a90524b4b573a90b2ccfde672cf94fa5b3cb3f56">
         <dex dex="C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\build\intermediates\pre-dexed\debug\classes_1ea924aa88e139768567130888194998c0de6ceb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Julio Castro\.gradle\caches\modules-2\files-2.1\io.sentry\sentry-android\1.5.3\6f3502e6d5b23bfaf97ea09af70b6cf2a1a79b87\sentry-android-1.5.3.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="6f3502e6d5b23bfaf97ea09af70b6cf2a1a79b87">
+        <dex dex="C:\Users\Julio Castro\AndroidStudioProjects\FuelID\FuelID Android Studio\FuelID\build\intermediates\pre-dexed\debug\sentry-android-1.5.3_dfd0cde38dda7f71880ffc216ec6ade43677d892.jar" />
     </item>
 
 </items>

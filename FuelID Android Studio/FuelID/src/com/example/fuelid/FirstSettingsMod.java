@@ -47,6 +47,12 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import io.sentry.Sentry;
+import io.sentry.android.AndroidSentryClientFactory;
+import io.sentry.context.Context;
+import io.sentry.event.BreadcrumbBuilder;
+import io.sentry.event.UserBuilder;
+
 public class FirstSettingsMod extends Activity{
 	  private Settings SettingsHelper;
       StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -54,7 +60,9 @@ public class FirstSettingsMod extends Activity{
 	  public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);	
 		  FontsOverride.setDefaultFont(this, "MONOSPACE", "fonts/MuseoSans300.otf");
-			
+		  Sentry.getContext().setUser(
+			  new UserBuilder().setEmail("First_Settings").build()
+		  );
 	    
 		setContentView(R.layout.licensescreen);
 		Intent intent = getIntent();
@@ -69,7 +77,12 @@ public class FirstSettingsMod extends Activity{
 		   actionBar.setDisplayShowTitleEnabled(false);  // required to force redraw, without, gray color
 	    actionBar.setDisplayShowTitleEnabled(true);
 	    actionBar.setDisplayHomeAsUpEnabled(false);
-	    actionBar.show(); 
+	    actionBar.show();
+		  android.content.Context ctx = this.getApplicationContext();
+
+		  // Use the Sentry DSN (client key) from the Project Settings page on Sentry
+		  String sentryDsn = "https://c68a8179ace94e9d936f56cddd7c5f53:69791b9f61754e44958eab1bc6076eb3@sentry.io/218195";
+		  Sentry.init(sentryDsn, new AndroidSentryClientFactory(ctx));
 
 }
 	public void onBack(View view) {
@@ -131,6 +144,7 @@ public class FirstSettingsMod extends Activity{
 			        	{
 			        	        Log.e("log_tag", "Error in http connection "+e.toString());
 			        	        Toast.makeText(getApplicationContext(), getString(R.string.connectionfail), Toast.LENGTH_SHORT).show();
+								Sentry.capture(e);
 
 			        	}
 			        	//convert response to string
@@ -149,6 +163,7 @@ public class FirstSettingsMod extends Activity{
 			        	catch(Exception e)
 			        	{
 			        	       Log.e("log_tag", "Error converting result "+e.toString());
+								Sentry.capture(e);
 			           	}
 			        	try{
 			        	            	JSONObject json_data = new JSONObject(result);
@@ -162,7 +177,10 @@ public class FirstSettingsMod extends Activity{
 			        	   {
 			        	        Log.e("log_tag", "Error parsing data "+e.toString());
 			        	        Toast.makeText(getApplicationContext(), "JsonArray fail", Toast.LENGTH_SHORT).show();
-			        	    }}catch(Exception e){}
+							   	Sentry.capture(e);
+			        	    }}catch(Exception e){
+								Sentry.capture(e);
+								}
 			
 			if(autorizado){
 			SettingsHelper.deleteSettings();

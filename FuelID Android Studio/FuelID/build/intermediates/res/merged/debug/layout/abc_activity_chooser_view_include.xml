@@ -52,16 +52,16 @@
         android:background="?attr/actionBarItemBackground">
 
         <ImageView
-            android:id="@+id/image"
+            android:id="@+id/image2"
             android:layout_width="56dip"
             android:layout_height="36dip"
             android:layout_gravity="center"
-            android:paddingTop="2dip"
+            android:adjustViewBounds="true"
             android:paddingBottom="2dip"
             android:paddingLeft="12dip"
             android:paddingRight="12dip"
-            android:scaleType="fitCenter"
-            android:adjustViewBounds="true" />
+            android:paddingTop="2dip"
+            android:scaleType="fitCenter" />
 
     </FrameLayout>
 

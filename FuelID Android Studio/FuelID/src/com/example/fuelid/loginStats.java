@@ -43,6 +43,13 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+
+//import io.sentry.context.Context;
+import io.sentry.Sentry;
+import io.sentry.event.BreadcrumbBuilder;
+import io.sentry.event.UserBuilder;
+
+
 /**
  * Created by Julio Castro on 18/9/2017.
  */
@@ -70,6 +77,9 @@ public class loginStats extends Activity {
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(false);
         actionBar.show();
+        Sentry.getContext().setUser(
+                new UserBuilder().setEmail("loginStats").build()
+        );
     }
 
     @Override
@@ -117,6 +127,7 @@ public class loginStats extends Activity {
                         startActivityForResult(intent, 0);
                     }catch(Exception e){
                         Toast.makeText(getApplicationContext(), "Debe instalar ZXING para utilizar esta opción.", Toast.LENGTH_SHORT).show();
+                        Sentry.capture(e);
                     }
                     return true;
                 }else{
@@ -170,6 +181,7 @@ public class loginStats extends Activity {
             {
                 Log.e("log_tag", "Error in http connection "+e.toString());
                 Toast.makeText(getApplicationContext(), "No se encuentra conectado a la red.Verifique conexión de VPN.", Toast.LENGTH_SHORT).show();
+                Sentry.capture(e);
             }
             try{
                 BufferedReader reader = new BufferedReader(new InputStreamReader(is,"ISO-8859-1"),8);
@@ -185,6 +197,7 @@ public class loginStats extends Activity {
             catch(Exception e)
             {
                 Log.e("log_tag", "Error converting result "+e.toString());
+                Sentry.capture(e);
             }
             int counter=0;
             try{
@@ -207,19 +220,35 @@ public class loginStats extends Activity {
                         succesfull=true;
                     }catch(Exception e)
                     {
+                        Sentry.capture(e);
+                    }
+                    try{
+                        Sentry.getContext().setUser(
+                                new UserBuilder().setEmail(USER).build()
+                        );
+                    }
+                    catch(Exception e){
+                        Log.e("ERROR SENTRY", e.toString());
+                        Sentry.getContext().setUser(
+                                new UserBuilder().setEmail("loginStats").build()
+                        );
+                        Sentry.capture(e);
                     }
                 }
             }
             catch(JSONException e)
             {
                 Log.e("log_tag", "Error parsing data "+e.toString()+Integer.toString(counter));
+                Sentry.capture(e);
             } catch (IllegalArgumentException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
+                Sentry.capture(e);
             }
         }catch(Exception e)
         {
             Log.e("log_tag", "Active el VPN para aplicar esta opción.");
+            Sentry.capture(e);
         }
         if(succesfull){
             user.setBackgroundResource(R.drawable.edittext_green);
@@ -260,6 +289,7 @@ public class loginStats extends Activity {
             {
                 Log.e("log_tag", "Error in http connection "+e.toString());
                 Toast.makeText(getApplicationContext(), "No se encuentra conectado a la red.Verifique conexión de VPN.", Toast.LENGTH_SHORT).show();
+                Sentry.capture(e);
             }
             try{
                 BufferedReader reader = new BufferedReader(new InputStreamReader(is,"ISO-8859-1"),8);
@@ -275,6 +305,7 @@ public class loginStats extends Activity {
             catch(Exception e)
             {
                 Log.e("log_tag", "Error converting result "+e.toString());
+                Sentry.capture(e);
             }
             int counter=0;
             try{
@@ -294,25 +325,29 @@ public class loginStats extends Activity {
                         try{
                             maxliter =   Normalizer.normalize(no.getString("CapacidadTanque"), Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "");
                         }
-                        catch(Exception e){}
+                        catch(Exception e){Sentry.capture(e);}
                         MAXLITER=maxliter;
                         counter++;
                         succesfull=true;
                     }catch(Exception e)
                     {
+                        Sentry.capture(e);
                     }
                 }
             }
             catch(JSONException e)
             {
                 Log.e("log_tag", "Error parsing data "+e.toString()+Integer.toString(counter));
+                Sentry.capture(e);
             } catch (IllegalArgumentException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
+                Sentry.capture(e);
             }
         }catch(Exception e)
         {
             Log.e("log_tag", "Active el VPN para aplicar esta opción.");
+            Sentry.capture(e);
         }
         if(succesfull){
             fleetid.setBackgroundResource(R.drawable.edittext_green);
