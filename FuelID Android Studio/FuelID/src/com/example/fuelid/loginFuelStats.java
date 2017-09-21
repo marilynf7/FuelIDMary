@@ -276,7 +276,7 @@ public class loginFuelStats extends Activity {
         protected void onPostExecute(Void result)
         {
             TextView plate = (TextView) findViewById(R.id.resStat);
-            plate.setText("Rendimiento: "+RENDIMIENTO+"% - Meta: "+META+"%");
+            plate.setText("Rendimiento: "+RENDIMIENTO+"Km/L - Meta: "+META+"Km/L");
             try{
                 Double metad = Double.parseDouble(META);
                 Double rendid = Double.parseDouble(RENDIMIENTO);
