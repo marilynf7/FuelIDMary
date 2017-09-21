@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Tue Sep 19 16:00:44 CST 2017
+#Tue Sep 19 17:23:07 CST 2017
 20.base=C\:\\Users\\Julio Castro\\AndroidStudioProjects\\FuelID\\FuelID Android Studio\\FuelID\\build\\intermediates\\res\\resources-release.ap_
 143.base=C\:\\Users\\Julio Castro\\AndroidStudioProjects\\FuelID\\FuelID Android Studio\\FuelID\\build\\intermediates\\res\\resources-release.ap_
 493.base=C\:\\Users\\Julio Castro\\AndroidStudioProjects\\FuelID\\FuelID Android Studio\\FuelID\\build\\intermediates\\res\\resources-release.ap_

@@ -138,7 +138,6 @@ public class FuelRestrictions extends Activity {
             Sentry.capture(e);
         }
         new LoadFuelData().execute();
-
     }
 
 

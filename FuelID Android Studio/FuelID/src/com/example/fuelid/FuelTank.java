@@ -299,15 +299,15 @@ public class FuelTank extends Activity {
 	          	date.setText(LASTUPLOAD);
 	        	
 	        	if(percentage==0){Tanque.setBackgroundResource(R.drawable.tankdiagram0);}
-	        	else if(percentage>0 &&percentage<=0.12){Tanque.setBackgroundResource(R.drawable.tankdiagram1);}
-	        	else if(percentage>0.12&&percentage<=0.24){Tanque.setBackgroundResource(R.drawable.tankdiagram2);}
-	          	else if(percentage>0.24&&percentage<=0.36){Tanque.setBackgroundResource(R.drawable.tankdiagram3);}
-	          	else if(percentage>0.36&&percentage<=0.48){Tanque.setBackgroundResource(R.drawable.tankdiagram4);}
-	          	else if(percentage>0.48&&percentage<=0.6){Tanque.setBackgroundResource(R.drawable.tankdiagram5);}
-	          	else if(percentage>0.6&&percentage<=0.72){Tanque.setBackgroundResource(R.drawable.tankdiagram6);}
-	          	else if(percentage>0.72&&percentage<=0.84){Tanque.setBackgroundResource(R.drawable.tankdiagram7);}
-	          	else if(percentage>0.84&&percentage<=0.96){Tanque.setBackgroundResource(R.drawable.tankdiagram8);}
-	          	else if(percentage>0.96){Tanque.setBackgroundResource(R.drawable.tankdiagram9);}
+	        	else if(percentage>0 &&percentage<=12){Tanque.setBackgroundResource(R.drawable.tankdiagram1);}
+	        	else if(percentage>12&&percentage<=24){Tanque.setBackgroundResource(R.drawable.tankdiagram2);}
+	          	else if(percentage>24&&percentage<=36){Tanque.setBackgroundResource(R.drawable.tankdiagram3);}
+	          	else if(percentage>36&&percentage<=48){Tanque.setBackgroundResource(R.drawable.tankdiagram4);}
+	          	else if(percentage>48&&percentage<=60){Tanque.setBackgroundResource(R.drawable.tankdiagram5);}
+	          	else if(percentage>60&&percentage<=72){Tanque.setBackgroundResource(R.drawable.tankdiagram6);}
+	          	else if(percentage>72&&percentage<=84){Tanque.setBackgroundResource(R.drawable.tankdiagram7);}
+	          	else if(percentage>84&&percentage<=96){Tanque.setBackgroundResource(R.drawable.tankdiagram8);}
+	          	else if(percentage>96){Tanque.setBackgroundResource(R.drawable.tankdiagram9);}
 				try {
 					dialog.cancel();
 				}

@@ -99,5 +99,7 @@
     <orderEntry type="module" module-name="android-support-v7-appcompat" exported="" />
     <orderEntry type="library" exported="" name="android-support-v4" level="project" />
     <orderEntry type="library" exported="" name="android-support-v7-appcompat" level="project" />
+    <orderEntry type="module" module-name="android-support-v7-appcompat" exported="" />
+    <orderEntry type="module" module-name="android-support-v7-appcompat" exported="" />
   </component>
 </module>

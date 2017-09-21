@@ -424,22 +424,6 @@ public class FuelOrderBalanceLoad extends Activity {
                 v.vibrate(400);
             }
             if(COUNTER==2){
-                /*Intent intento = new Intent(getApplicationContext(), FuelSummary.class);
-                intento.putExtra("usuario",USER);
-                intento.putExtra("tipousuario",TIPOUSUARIO);
-                intento.putExtra("estacion",STATION);
-                intento.putExtra("compania",COMPANY);
-                intento.putExtra("marca",CARTYPE);
-                intento.putExtra("costo",FUELCOST);
-                intento.putExtra("loc",LOCATION_SCENARIO);
-                intento.putExtra("tankid",TANKID);
-                intento.putExtra("branchid",BRANCHID);
-                intento.putExtra("gastype",GASTYPE);
-                intento.putExtra("maxliter",MAXLITER);
-                int i = (int) (new Date().getTime()/1000);
-                intento.putExtra("transactionid",i+"");
-                startActivity(intento);
-                this.finish();*/
                 Intent intento = new Intent(getApplicationContext(), FuelTank.class);
                 intento.putExtra("idtank",TANKID);
                 intento.putExtra("company",COMPANY);
